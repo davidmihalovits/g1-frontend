@@ -27,11 +27,7 @@ const Signup = () => {
 
     return (
         <div className="signup-container">
-            <img
-                src={signupTitle}
-                className="signup-title"
-                alt="signup title"
-            />
+            <h1 className="signup-title">CREATE YOUR ACCOUNT</h1>
             <form className="signup-form" onSubmit={signup} noValidate>
                 <input
                     placeholder="First Name"
