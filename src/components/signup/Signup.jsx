@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import "./Signup.sass";
+import { Link } from "react-router-dom";
 import eye from "../../assets/eye.svg";
 import eyeSlash from "../../assets/eyeSlash.svg";
+import checkboxFalse from "../../assets/checkboxFalse.svg";
+import checkboxTrue from "../../assets/checkboxTrue.svg";
 
 const Signup = () => {
     const [firstName, setFirstName] = useState("");
@@ -11,6 +14,7 @@ const Signup = () => {
     const [confirmPassword, setConfirmPassword] = useState("");
     const [hiddenPassword, setHiddenPassword] = useState("");
     const [hiddenConfirmPassword, setHiddenConfirmPassword] = useState("");
+    const [checked, setChecked] = useState(false);
 
     const showPassword = () => {
         setHiddenPassword(!hiddenPassword);
@@ -22,7 +26,17 @@ const Signup = () => {
 
     const signup = (e) => {
         e.preventDefault();
+
+        alert("Register.");
     };
+
+    const disabled =
+        firstName.length !== 0 &&
+        lastName.length !== 0 &&
+        email.length !== 0 &&
+        password.length !== 0 &&
+        confirmPassword.length !== 0 &&
+        checked;
 
     return (
         <div className="signup-container">
@@ -35,7 +49,11 @@ const Signup = () => {
                     type="text"
                     value={firstName}
                     onChange={(e) => setFirstName(e.target.value)}
-                    className="signup-input"
+                    className={
+                        firstName.length === 0
+                            ? "signup-input"
+                            : "signup-input-filled"
+                    }
                 />
                 <input
                     placeholder="Last Name"
@@ -44,7 +62,11 @@ const Signup = () => {
                     type="text"
                     value={lastName}
                     onChange={(e) => setLastName(e.target.value)}
-                    className="signup-input"
+                    className={
+                        lastName.length === 0
+                            ? "signup-input"
+                            : "signup-input-filled"
+                    }
                 />
                 <input
                     placeholder="Email Address"
@@ -53,7 +75,11 @@ const Signup = () => {
                     type="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="signup-input"
+                    className={
+                        email.length === 0
+                            ? "signup-input"
+                            : "signup-input-filled"
+                    }
                 />
                 <input
                     placeholder="Password"
@@ -62,7 +88,11 @@ const Signup = () => {
                     type={hiddenPassword ? "text" : "password"}
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
-                    className="signup-input"
+                    className={
+                        password.length === 0
+                            ? "signup-input"
+                            : "signup-input-filled"
+                    }
                 />
                 {hiddenPassword ? (
                     <img
@@ -86,7 +116,11 @@ const Signup = () => {
                     type={hiddenConfirmPassword ? "text" : "password"}
                     value={confirmPassword}
                     onChange={(e) => setConfirmPassword(e.target.value)}
-                    className="signup-input"
+                    className={
+                        confirmPassword.length === 0
+                            ? "signup-input"
+                            : "signup-input-filled"
+                    }
                 />
                 {hiddenConfirmPassword ? (
                     <img
@@ -103,6 +137,38 @@ const Signup = () => {
                         alt="show and hide password"
                     />
                 )}
+                <div className="signup-checkbox-policy-group">
+                    <img
+                        src={checked ? checkboxTrue : checkboxFalse}
+                        alt="checkbox"
+                        onClick={() => setChecked(!checked)}
+                        className="signup-checkbox"
+                    />
+                    <p className="signup-policy">
+                        I certify that I am 18 years of age or older, and{" "}
+                        <span
+                            style={{
+                                fontWeight: "bold",
+                                textDecoration: "underline",
+                            }}
+                        >
+                            I agree to the User Agreement and Privacy Policy
+                        </span>
+                        .
+                    </p>
+                </div>
+                <button
+                    type="submit"
+                    disabled={!disabled}
+                    className="signup-button"
+                >
+                    CREATE YOUR ACCOUNT
+                </button>
+                <Link to="/login" className="already-have-account-link">
+                    <p className="already-have-account">
+                        Already have an account? Log in here!
+                    </p>
+                </Link>
             </form>
         </div>
     );

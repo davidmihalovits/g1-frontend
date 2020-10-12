@@ -1,7 +1,7 @@
 @import '../../App'
 
 .signup-container
-    margin: 90px 16px
+    margin: 90px 16px 30px 16px
     text-align: center
 
     .signup-title
@@ -24,7 +24,10 @@
     .signup-form
         box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.321048)
         margin-top: 30px
-        padding: 20px
+        padding: 30px 20px
+
+        .signup-input:first-child, .signup-input-filled:first-child
+            margin-top: 0
 
         .signup-input
             width: 100%
@@ -42,7 +45,62 @@
                 border: 1px solid $dark-grey
                 color: $dark-grey
 
+        .signup-input-filled
+            width: 100%
+            border: 1px solid $dark-grey
+            color: $dark-grey
+            padding: 15px 20px
+            margin-top: 15px
+            outline: none
+            -webkit-border-radius: 0px
+            -webkit-appearance: none
+            border-radius: 0px
+            appearance: none
+
+            &:focus
+                border: 1px solid $dark-grey
+                color: $dark-grey
+
         .signup-show-hide-password
             position: absolute
             margin-left: -37px
             margin-top: 27px
+
+        .signup-checkbox-policy-group
+            display: grid
+            grid-template-columns: 30px 1fr
+            margin-top: 30px
+
+            .signup-checkbox
+                width: 20px
+                height: 20px
+                margin-top: 3px
+
+            .signup-policy
+                color: $standard-grey
+                text-align: left
+                line-height: 24px
+
+        .signup-button
+            width: 100%
+            height: 50px
+            font-size: 16px
+            font-weight: bold
+            color: white
+            background: $yellow-gradient
+            outline: none
+            border: none
+            border-radius: 5px
+            cursor: pointer
+            margin-top: 30px
+
+            &:disabled
+                background: $light-yellow-gradient
+
+        .already-have-account-link
+            text-decoration: none
+
+            .already-have-account
+                color: $standard-grey
+                margin-top: 30px
+                text-decoration: underline
