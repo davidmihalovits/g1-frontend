@@ -11,9 +11,14 @@ const Signup = () => {
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
     const [hiddenPassword, setHiddenPassword] = useState("");
+    const [hiddenConfirmPassword, setHiddenConfirmPassword] = useState("");
 
     const showPassword = () => {
         setHiddenPassword(!hiddenPassword);
+    };
+
+    const showConfirmPassword = () => {
+        setHiddenConfirmPassword(!hiddenConfirmPassword);
     };
 
     const signup = (e) => {
@@ -64,15 +69,6 @@ const Signup = () => {
                     onChange={(e) => setPassword(e.target.value)}
                     className="signup-input"
                 />
-                <input
-                    placeholder="Confirm Password"
-                    id="confirmPassword"
-                    name="confirmPassword"
-                    type={hiddenPassword ? "text" : "password"}
-                    value={confirmPassword}
-                    onChange={(e) => setConfirmPassword(e.target.value)}
-                    className="signup-input"
-                />
                 {hiddenPassword ? (
                     <img
                         src={eyeSlash}
@@ -84,6 +80,30 @@ const Signup = () => {
                     <img
                         src={eye}
                         onClick={showPassword}
+                        className="signup-show-hide-password"
+                        alt="show and hide password"
+                    />
+                )}
+                <input
+                    placeholder="Confirm Password"
+                    id="confirmPassword"
+                    name="confirmPassword"
+                    type={hiddenConfirmPassword ? "text" : "password"}
+                    value={confirmPassword}
+                    onChange={(e) => setConfirmPassword(e.target.value)}
+                    className="signup-input"
+                />
+                {hiddenConfirmPassword ? (
+                    <img
+                        src={eyeSlash}
+                        onClick={showConfirmPassword}
+                        className="signup-show-hide-password"
+                        alt="show and hide password"
+                    />
+                ) : (
+                    <img
+                        src={eye}
+                        onClick={showConfirmPassword}
                         className="signup-show-hide-password"
                         alt="show and hide password"
                     />
