@@ -1,0 +1,36 @@
+@import '../../App'
+
+// authenticated: false
+.navbar-container-auth-false
+    position: fixed
+    top: 0
+    width: 100%
+    z-index: 1
+    background-color: white
+
+    .navbar-top-auth-false
+        display: grid
+        grid-template-columns: 122px 1fr
+        align-items: center
+        padding: 20px 16px
+
+        .navbar-logo
+            width: 112px
+
+        .navbar-button-hamburger-group
+            justify-self: end
+
+            .navbar-button
+                font-size: 12px
+                font-weight: bold
+                color: white
+                background: $yellow-gradient
+                outline: none
+                border: none
+                cursor: pointer
+                padding: 10px 22px
+
+            .navbar-hamburger
+                vertical-align: middle
+                width: 20px
+                margin-left: 18px
