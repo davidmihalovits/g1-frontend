@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import "./Signup.sass";
-import signupTitle from "../../assets/signupTitle.svg";
 import eye from "../../assets/eye.svg";
 import eyeSlash from "../../assets/eyeSlash.svg";
 
