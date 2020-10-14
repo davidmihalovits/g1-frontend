@@ -9,6 +9,10 @@ import Login from "./components/login/Login";
 import Verification from "./components/verification/Verification";
 import ForgotPassword from "./components/forgotPassword/ForgotPassword";
 import NewPassword from "./components/newPassword/NewPassword";
+import ProcessOne from "./components/processOne/ProcessOne";
+import ProcessTwo from "./components/processTwo/ProcessTwo";
+import ProcessThree from "./components/processThree/ProcessThree";
+import ProcessFour from "./components/processFour/ProcessFour";
 
 const App = () => {
     return (
@@ -25,6 +29,10 @@ const App = () => {
                     component={ForgotPassword}
                 />
                 <Route exact path="/new-password" component={NewPassword} />
+                <Route exact path="/process-one" component={ProcessOne} />
+                <Route exact path="/process-two" component={ProcessTwo} />
+                <Route exact path="/process-three" component={ProcessThree} />
+                <Route exact path="/process-four" component={ProcessFour} />
             </Switch>
             <Footer />
         </BrowserRouter>

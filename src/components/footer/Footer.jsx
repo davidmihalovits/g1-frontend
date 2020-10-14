@@ -11,20 +11,26 @@ const Footer = () => {
     return (
         <div className="footer-container">
             <hr className="footer-line" />
-            <div className="footer-top">
-                <img src={logo} className="footer-logo" alt="logo" />
-                <img src={apple} className="footer-apple" alt="apple" />
-                <img src={android} className="footer-android" alt="android" />
-            </div>
-            <div className="footer-middle1">
-                <p className="footer-middle-p">Home</p>
-                <p className="footer-middle-p">White Paper</p>
-                <p className="footer-middle-p">About Us</p>
-                <p className="footer-middle-p">Blog</p>
-            </div>
-            <div className="footer-middle2">
-                <p className="footer-middle-p">Support</p>
-                <p className="footer-middle-p">FAQ</p>
+            <div className="footer-top-group">
+                <div className="footer-top">
+                    <img src={logo} className="footer-logo" alt="logo" />
+                    <img src={apple} className="footer-apple" alt="apple" />
+                    <img
+                        src={android}
+                        className="footer-android"
+                        alt="android"
+                    />
+                </div>
+                <div className="footer-middle1">
+                    <p className="footer-middle-p">Home</p>
+                    <p className="footer-middle-p">White Paper</p>
+                    <p className="footer-middle-p">About Us</p>
+                    <p className="footer-middle-p">Blog</p>
+                </div>
+                <div className="footer-middle2">
+                    <p className="footer-middle-p">Support</p>
+                    <p className="footer-middle-p">FAQ</p>
+                </div>
             </div>
             <div className="social-icons">
                 <img src={facebook} className="social-icon fb" alt="facebook" />

@@ -22,6 +22,18 @@ const Home = () => {
             <Link to="/new-password" className="link">
                 New Password
             </Link>
+            <Link to="/process-one" className="link">
+                Process One
+            </Link>
+            <Link to="/process-two" className="link">
+                Process Two
+            </Link>
+            <Link to="/process-three" className="link">
+                Process Three
+            </Link>
+            <Link to="/process-four" className="link">
+                Process Four
+            </Link>
         </div>
     );
 };

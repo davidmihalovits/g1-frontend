@@ -1,0 +1,134 @@
+@import '../../App'
+
+.process-three-container
+    margin: 90px 16px 30px 16px
+    text-align: center
+
+    .process-three-pagination
+        display: grid
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr
+        align-items: center
+        gap: 0 8px
+        width: 288px
+        margin: 0 auto
+
+        .process-three-page-selected
+            font-family: 'Times New Roman'
+            background: $light-blue-gradient
+            color: white
+            width: 40px
+            height: 40px
+            border-radius: 50%
+            padding-top: 10px
+
+        .process-three-page-unselected
+            font-family: 'Times New Roman'
+            border: 1px solid $washed-blue
+            color: $washed-blue
+            width: 40px
+            height: 40px
+            border-radius: 50%
+            padding-top: 10px
+
+        .process-three-hr
+            border: none
+            border-top: 2px solid $washed-blue
+
+    .process-three-title
+        font-family: 'Times New Roman'
+        font-size: 24px
+        margin-top: 30px
+        color: $dark-grey
+
+    .process-three-form
+        margin-top: 30px
+        text-align: left
+
+        .process-three-form-label
+            margin-top: 15px
+            font-weight: bold
+            text-align: left
+
+        .process-three-select-unselected
+            display: grid
+            grid-template-columns: 1fr 1fr
+            align-items: center
+            font-size: 14px
+            border: 1px solid $washed-grey
+            color: $washed-grey
+            padding: 15px 20px
+            margin-top: 15px
+            outline: none
+            -webkit-border-radius: 0px
+            -webkit-appearance: none
+            border-radius: 0px
+            appearance: none
+
+            .process-three-arrow
+                justify-self: end
+
+        .process-three-select-selected
+            display: grid
+            grid-template-columns: 1fr 1fr
+            align-items: center
+            font-size: 14px
+            border: 1px solid $dark-grey
+            color: $dark-grey
+            padding: 15px 20px
+            margin-top: 15px
+            outline: none
+            -webkit-border-radius: 0px
+            -webkit-appearance: none
+            border-radius: 0px
+            appearance: none
+
+            .process-three-arrow
+                justify-self: end
+
+        .process-three-input
+            width: 100%
+            border: 1px solid $washed-grey
+            color: $washed-grey
+            padding: 15px 20px
+            margin-top: 15px
+            outline: none
+            -webkit-border-radius: 0px
+            -webkit-appearance: none
+            border-radius: 0px
+            appearance: none
+
+            &:focus
+                border: 1px solid $dark-grey
+                color: $dark-grey
+
+        .process-three-input-filled
+            width: 100%
+            border: 1px solid $dark-grey
+            color: $dark-grey
+            padding: 15px 20px
+            margin-top: 15px
+            outline: none
+            -webkit-border-radius: 0px
+            -webkit-appearance: none
+            border-radius: 0px
+            appearance: none
+
+            &:focus
+                border: 1px solid $dark-grey
+                color: $dark-grey
+
+        .process-three-button
+            width: 100%
+            height: 50px
+            font-size: 16px
+            font-weight: bold
+            color: white
+            background: $yellow-gradient
+            outline: none
+            border: none
+            border-radius: 5px
+            cursor: pointer
+            margin-top: 30px
+
+            &:disabled
+                background: $light-yellow-gradient
