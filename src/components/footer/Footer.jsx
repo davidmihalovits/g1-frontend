@@ -1,4 +1,5 @@
 import React from "react";
+import { useLocation } from "react-router-dom";
 import "./Footer.sass";
 import logo from "../../assets/logo.svg";
 import apple from "../../assets/apple.svg";
@@ -8,6 +9,12 @@ import twitter from "../../assets/twitter.svg";
 import instagram from "../../assets/instagram.svg";
 
 const Footer = () => {
+    const location = useLocation();
+
+    if (location.pathname === "/dashboard") {
+        return null;
+    }
+
     return (
         <div className="footer-container">
             <hr className="footer-line" />

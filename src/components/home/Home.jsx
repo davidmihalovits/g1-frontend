@@ -34,6 +34,9 @@ const Home = () => {
             <Link to="/process-four" className="link">
                 Process Four
             </Link>
+            <Link to="/dashboard" className="link">
+                Dashboard
+            </Link>
         </div>
     );
 };

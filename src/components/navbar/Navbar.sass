@@ -38,3 +38,54 @@
                 vertical-align: middle
                 width: 20px
                 margin-left: 18px
+
+// authenticated: true
+.navbar-container-auth-true
+    .navbar-top-auth-true
+        position: fixed
+        top: 0
+        width: 100%
+        z-index: 1
+        background: $blue-gradient
+
+        .navbar-top-inner
+            display: grid
+            grid-template-columns: 112px 1fr
+            align-items: center
+            padding: 10px 16px
+
+            .navbar-logo
+                width: 112px
+
+            .navbar-button-bell-group
+                justify-self: end
+
+                .navbar-button
+                    font-size: 12px
+                    font-weight: bold
+                    color: white
+                    background: $yellow-gradient
+                    outline: none
+                    border: none
+                    cursor: pointer
+                    padding: 10px 22px
+                    border-radius: 5px
+
+                .navbar-bell
+                    vertical-align: middle
+                    width: 20px
+                    margin-left: 18px
+
+    .navbar-bottom-auth-true
+        position: fixed
+        bottom: 0
+        width: 100%
+        z-index: 1
+        background-color: white
+
+        .navbar-bottom-inner
+            display: grid
+            grid-template-columns: repeat(5, auto)
+            align-items: center
+            justify-content: space-between
+            padding: 10px 16px

@@ -1,0 +1,101 @@
+@import '../../App'
+
+.dashboard-container
+    padding: 50px 16px 100px 16px
+    text-align: center
+    background-color: $background-grey
+
+    .dashboard-title
+        color: $standard-turquoise
+        text-align: left
+        font-size: 12px
+        font-weight: bold
+        margin-top: 20px
+
+    .balance-box
+        background-color: white
+        margin-top: 10px
+        border-radius: 5px
+        box-shadow: 0px 2px 43px rgba(147, 147, 147, 0.420771)
+        padding: 20px 15px
+
+        .balance-coin-div
+            display: grid
+            grid-template-columns: 1fr 1fr
+            align-items: center
+            gap: 0 5px
+
+            .my-balance
+                justify-self: end
+                color: $washed-blue
+                font-weight: bold
+                font-size: 40px
+
+        .total-balance
+            color: $standard-turquoise
+            font-size: 14px
+
+        .balance-box-line
+            border: none
+            border-top: 1px solid #D4D4D4
+            margin-top: 20px
+
+        .add-new-account-button
+            margin: 20px auto 0 auto
+            padding: 30px
+            border: 1px solid #E7EDF2
+            outline: none
+            background-color: white
+            border-radius: 5px
+            color: $standard-turquoise
+            font-weight: bold
+            font-size: 16px
+            display: grid
+            grid-template-columns: 25px 1fr
+            cursor: pointer
+
+    .chart-box
+        background-color: white
+        margin-top: 10px
+        border-radius: 5px
+        box-shadow: 0px 2px 43px rgba(147, 147, 147, 0.420771)
+        padding: 20px 15px
+
+        .chart-box-top
+            display: grid
+            grid-template-columns: auto auto auto
+            align-items: center
+            gap: 0 10px
+
+            .chart-box-price
+                text-align: left
+
+                .currency
+                    font-weight: 900
+                    font-size: 12px
+                    color: $washed-blue
+
+                .price
+                    font-weight: 900
+                    font-size: 22px
+                    color: $washed-blue
+                    line-height: 0
+
+            .chart-box-filter
+                border: 1px solid $washed-blue
+                border-radius: 3px
+                padding: 8px 10px
+                color: $washed-blue
+                font-size: 12px
+
+                .chart-box-filter-arrow
+                    margin-left: 3px
+
+        .chart-box-line
+            border: none
+            border-top: 1px solid #D4D4D4
+            margin-top: 20px
+
+        .chart-container
+            width: 100%
+            height: 130px

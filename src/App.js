@@ -13,6 +13,7 @@ import ProcessOne from "./components/processOne/ProcessOne";
 import ProcessTwo from "./components/processTwo/ProcessTwo";
 import ProcessThree from "./components/processThree/ProcessThree";
 import ProcessFour from "./components/processFour/ProcessFour";
+import Dashboard from "./components/dashboard/Dashboard";
 
 const App = () => {
     return (
@@ -33,7 +34,9 @@ const App = () => {
                 <Route exact path="/process-two" component={ProcessTwo} />
                 <Route exact path="/process-three" component={ProcessThree} />
                 <Route exact path="/process-four" component={ProcessFour} />
+                <Route exact path="/dashboard" component={Dashboard} />
             </Switch>
+
             <Footer />
         </BrowserRouter>
     );
