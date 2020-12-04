@@ -1,6 +1,6 @@
 import React from "react";
-import { useLocation } from "react-router-dom";
 import "./Footer.sass";
+import { useSelector } from "react-redux";
 import logo from "../../assets/logo.svg";
 import apple from "../../assets/apple.svg";
 import android from "../../assets/android.svg";
@@ -9,9 +9,9 @@ import twitter from "../../assets/twitter.svg";
 import instagram from "../../assets/instagram.svg";
 
 const Footer = () => {
-    const location = useLocation();
+    const reducer = useSelector((state) => state.reducers);
 
-    if (location.pathname === "/dashboard") {
+    if (reducer.authenticated && reducer.user.verified) {
         return null;
     }
 

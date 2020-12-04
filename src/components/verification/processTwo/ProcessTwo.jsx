@@ -1,21 +1,23 @@
 import React, { useState } from "react";
 import "./ProcessTwo.sass";
+import ProcessThree from "../processThree/ProcessThree";
 
-const ProcessTwo = () => {
+const ProcessTwo = (props) => {
     const [first, setFirst] = useState("");
     const [last, setLast] = useState("");
     const [month, setMonth] = useState("");
     const [day, setDay] = useState("");
     const [year, setYear] = useState("");
-    const [main, setMain] = useState("");
+    const [street, setStreet] = useState("");
     const [unit, setUnit] = useState("");
     const [city, setCity] = useState("");
     const [zip, setZip] = useState("");
+    const [processThree, setProcessThree] = useState(false);
 
     const submit = (e) => {
         e.preventDefault();
 
-        alert("Submit.");
+        setProcessThree(true);
     };
 
     const disabled =
@@ -24,10 +26,27 @@ const ProcessTwo = () => {
         month.length > 0 &&
         day.length > 0 &&
         year.length > 0 &&
-        main.length > 0 &&
+        street.length > 0 &&
         unit.length > 0 &&
         city.length > 0 &&
         zip.length > 0;
+
+    if (processThree) {
+        return (
+            <ProcessThree
+                format={props.format}
+                phone={props.phone}
+                firstName={first}
+                lastName={last}
+                month={month}
+                day={day}
+                year={year}
+                street={street}
+                city={city}
+                zip={zip}
+            />
+        );
+    }
 
     return (
         <div className="process-two-container">
@@ -116,10 +135,10 @@ const ProcessTwo = () => {
                     id="street"
                     name="street"
                     type="text"
-                    value={main}
-                    onChange={(e) => setMain(e.target.value)}
+                    value={street}
+                    onChange={(e) => setStreet(e.target.value)}
                     className={
-                        main.length === 0
+                        street.length === 0
                             ? "process-two-input"
                             : "process-two-input-filled"
                     }

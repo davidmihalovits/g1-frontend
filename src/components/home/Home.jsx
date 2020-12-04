@@ -1,42 +1,27 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./Home.sass";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const Home = () => {
+    const reducer = useSelector((state) => state.reducers);
+
+    const history = useHistory();
+
+    useEffect(() => {
+        if (reducer.authenticated) {
+            history.push("/dashboard");
+        }
+    });
+
     return (
         <div className="home-container">
-            <h1 className="home-title">This will be the home page.</h1>
-            <p className="check-routes">Check the routes here:</p>
-            <Link to="/login" className="link">
-                Login
-            </Link>
-            <Link to="/signup" className="link">
-                Signup
-            </Link>
-            <Link to="/verification" className="link">
-                Verification
-            </Link>
-            <Link to="/forgot-password" className="link">
-                Forgot Password
-            </Link>
-            <Link to="/new-password" className="link">
-                New Password
-            </Link>
-            <Link to="/process-one" className="link">
-                Process One
-            </Link>
-            <Link to="/process-two" className="link">
-                Process Two
-            </Link>
-            <Link to="/process-three" className="link">
-                Process Three
-            </Link>
-            <Link to="/process-four" className="link">
-                Process Four
-            </Link>
-            <Link to="/dashboard" className="link">
-                Dashboard
-            </Link>
+            <h1 className="home-title">
+                This will be the home page. Nothing to see here yet.
+            </h1>
+            <p className="home-paragraph">
+                Get started by signing up or logging in.
+            </p>
         </div>
     );
 };

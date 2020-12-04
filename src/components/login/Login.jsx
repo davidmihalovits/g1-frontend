@@ -1,15 +1,30 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Login.sass";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
+import { connect, useSelector } from "react-redux";
+import { login } from "../../redux/actions/actions";
 
-const Login = () => {
+const Login = (props) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+
+    const reducer = useSelector((state) => state.reducers);
+
+    const history = useHistory();
+
+    useEffect(() => {
+        if (reducer.authenticated) {
+            history.push("/dashboard");
+        }
+    });
 
     const login = (e) => {
         e.preventDefault();
 
-        alert("Login.");
+        props.login({
+            email: email,
+            password: password,
+        });
     };
 
     const disabled = email.length !== 0 && password.length !== 0;
@@ -57,7 +72,7 @@ const Login = () => {
                 <Link to="/signup" className="dont-have-account-link">
                     <p className="dont-have-account">Don't have an account?</p>
                 </Link>
-                <Link to="/verification" className="two-fa-issue-link">
+                <Link to="/two-factor-auth" className="two-fa-issue-link">
                     <p className="two-fa-issue">
                         Have an issue with two-factor authentication?
                     </p>
@@ -67,4 +82,4 @@ const Login = () => {
     );
 };
 
-export default Login;
+export default connect(null, { login })(Login);

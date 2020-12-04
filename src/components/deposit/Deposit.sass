@@ -1,0 +1,164 @@
+@import '../../App'
+
+.deposit-container
+    padding: 50px 16px 100px 16px
+    background-color: $background-grey
+
+    .deposit-title
+        font-size: 12px
+        font-weight: bold
+        color: $washed-blue
+        margin-top: 20px
+
+    .deposit-box
+        background-color: white
+        margin-top: 10px
+        border-radius: 5px
+        box-shadow: 0px 2px 43px rgba(147, 147, 147, 0.420771)
+        padding: 20px 12px
+
+        .deposit-box-title
+            font-size: 12px
+            font-weight: bold
+            color: $standard-turquoise
+
+        .deposit-box-credit-card
+            display: grid
+            grid-template-columns: 50px 1fr 12px
+            align-items: center
+            font-size: 14px
+            border: 1px solid $dark-grey
+            color: $dark-grey
+            padding: 0 10px
+            height: 54px
+            margin: 10px 0 20px 0
+            outline: none
+            -webkit-border-radius: 0px
+            -webkit-appearance: none
+            border-radius: 0px
+            appearance: none
+
+            .deposit-box-select-arrow
+                justify-self: end
+
+            .deposit-box-mastercard
+                width: 40px
+                height: 30px
+
+        .deposit-box-accounts
+            display: grid
+            grid-template-columns: 40px 1fr 12px
+            align-items: center
+            font-size: 14px
+            border: 1px solid $dark-grey
+            color: $dark-grey
+            padding: 0 10px
+            height: 54px
+            margin: 10px 0 20px 0
+            outline: none
+            -webkit-border-radius: 0px
+            -webkit-appearance: none
+            border-radius: 0px
+            appearance: none
+
+            .deposit-box-accounts-gold-icon
+                height: 30px
+                width: 30px
+
+            .deposit-box-accounts-wallet-balance
+                .deposit-box-accounts-currency
+                    color: $standard-turquoise
+                    font-weight: bold
+
+                .deposit-box-accounts-balance
+                    font-size: 12px
+                    font-weight: bold
+                    color: $standard-grey
+
+        .deposit-box-dropdown-container
+            position: relative
+
+            .deposit-box-dropdown
+                max-height: 90px
+                overflow-y: scroll
+                position: absolute
+                background-color: white
+                z-index: 1
+                width: 100%
+                border: 1px solid $dark-grey
+                border-top: none
+                margin-top: -20px
+
+                .deposit-box-dropdown-accounts
+                    display: grid
+                    grid-template-columns: 40px 1fr
+                    align-items: center
+                    font-size: 14px
+                    border-top: 1px solid $dark-grey
+                    color: $dark-grey
+                    padding: 0 10px
+                    height: 54px
+                    outline: none
+                    -webkit-border-radius: 0px
+                    -webkit-appearance: none
+                    border-radius: 0px
+                    appearance: none
+
+        .deposit-box-amount
+            width: 50%
+            border: 1px solid $washed-grey
+            color: $washed-grey
+            padding: 0 10px
+            height: 54px
+            margin: 10px 0 0 0
+            outline: none
+            -webkit-border-radius: 0px
+            -webkit-appearance: none
+            border-radius: 0px
+            appearance: none
+            font-size: 16px
+
+            &:focus
+                border: 1px solid $dark-grey
+                color: $dark-grey
+
+        .deposit-box-amount-filled
+            width: 50%
+            border: 1px solid $dark-grey
+            color: $dark-grey
+            padding: 0 10px
+            height: 54px
+            margin: 10px 0 0 0
+            outline: none
+            -webkit-border-radius: 0px
+            -webkit-appearance: none
+            border-radius: 0px
+            appearance: none
+            font-size: 16px
+
+            &:focus
+                border: 1px solid $dark-grey
+                color: $dark-grey
+
+    .deposit-box-button-container
+        text-align: center
+
+        .deposit-box-button
+            width: 170px
+            height: 54px
+            margin-top: 48px
+            font-size: 16px
+            font-weight: bold
+            color: white
+            background: $yellow-gradient
+            outline: none
+            border: none
+            border-radius: 5px
+            cursor: pointer
+
+            &:disabled
+                background: $light-yellow-gradient
+
+        .deposit-box-button-cancel
+            margin-top: 20px
+            font-weight: bold

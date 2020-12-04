@@ -1,0 +1,157 @@
+@import '../../App'
+
+.add-new-account-container
+    margin: 0 auto
+    max-width: 470px
+    background-color: white
+    position: fixed
+    z-index: 1
+    left: 5%
+    right: 5%
+    top: 15%
+    bottom: 15%
+    border: none
+    box-shadow: 1px 1px 6px 0 #c5c5c5
+    overflow: auto
+    padding: 20px
+
+    .add-new-account-title
+        font-size: 14px
+        font-weight: 900
+        color: $standard-blue
+        text-align: center
+
+    .add-new-account-close
+        position: absolute
+        right: 0
+        margin-right: 20px
+        height: 15px
+        width: 15px
+
+    .add-bank-account-container
+        position: relative
+
+        .add-new-account-selected
+            display: grid
+            grid-template-columns: 37px 1fr 1fr
+            align-items: center
+            font-size: 14px
+            border: 1px solid $dark-grey
+            color: $dark-grey
+            padding: 15px 20px
+            margin-top: 30px
+            outline: none
+            -webkit-border-radius: 0px
+            -webkit-appearance: none
+            border-radius: 0px
+            appearance: none
+
+            .add-new-account-select-arrow
+                justify-self: end
+
+            .add-new-account-coin
+                width: 27px
+                height: 27px
+
+        .add-new-account-dropdown
+            height: 90px
+            overflow-y: scroll
+            border-bottom: 1px solid $dark-grey
+            position: absolute
+            background-color: white
+            z-index: 1
+            width: 100%
+
+            .add-new-account-select-currency
+                display: grid
+                grid-template-columns: 37px 1fr
+                align-items: center
+                font-size: 14px
+                border: 1px solid $dark-grey
+                color: $dark-grey
+                padding: 15px 20px
+                outline: none
+                -webkit-border-radius: 0px
+                -webkit-appearance: none
+                border-radius: 0px
+                appearance: none
+
+        .add-new-account-number
+            width: 100%
+            border: 1px solid $washed-grey
+            color: $washed-grey
+            padding: 15px 20px
+            margin-top: 15px
+            outline: none
+            -webkit-border-radius: 0px
+            -webkit-appearance: none
+            border-radius: 0px
+            appearance: none
+
+            &:focus
+                border: 1px solid $dark-grey
+                color: $dark-grey
+
+        .add-new-account-number-filled
+            width: 100%
+            border: 1px solid $dark-grey
+            color: $dark-grey
+            padding: 15px 20px
+            margin-top: 15px
+            outline: none
+            -webkit-border-radius: 0px
+            -webkit-appearance: none
+            border-radius: 0px
+            appearance: none
+
+            &:focus
+                border: 1px solid $dark-grey
+                color: $dark-grey
+
+        .add-new-account-button
+            width: 100%
+            height: 50px
+            font-size: 16px
+            font-weight: bold
+            color: white
+            background: $yellow-gradient
+            outline: none
+            border: none
+            border-radius: 5px
+            cursor: pointer
+            margin-top: 30px
+
+    .add-new-account-line
+        border: none
+        border-top: 1px solid #D4D4D4
+        margin-top: 30px
+
+    .add-new-bank-account
+        display: grid
+        grid-template-columns: 50px 1fr 17px
+        margin-top: 30px
+
+        .add-new-icon-account
+            width: 40px
+            height: 40px
+
+        .add-new-icon-select
+            align-self: center
+            justify-self: end
+            width: 7px
+            height: 12px
+
+        .add-new-bank-account-middle
+            .add-new-bank-account-middle-title
+                color: $standard-turquoise
+                font-weight: bold
+                font-size: 16px
+
+            .add-new-bank-account-middle-description
+                font-weight: bold
+                font-size: 16px
+                margin-top: 5px
+
+            .add-new-bank-account-middle-instruction
+                font-size: 14px
+                margin-top: 5px

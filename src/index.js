@@ -12,7 +12,7 @@ import reducers from "./redux/reducers/index";
 const initialState = {};
 const middleware = [thunk];
 
-const store = createStore(
+export const store = createStore(
     reducers,
     initialState,
     applyMiddleware(...middleware, logger)

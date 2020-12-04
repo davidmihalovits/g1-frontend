@@ -1,52 +1,135 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import ReactDOM from "react-dom";
 import "./Dashboard.sass";
+import { Link, useHistory } from "react-router-dom";
+import { connect, useSelector } from "react-redux";
+import { getAccounts } from "../../redux/actions/actions";
+import { Provider } from "react-redux";
+import { store } from "../../index";
 import coin from "../../assets/coin.svg";
 import plus from "../../assets/plus.svg";
 import selectArrow from "../../assets/selectArrow.svg";
-import {
-    AreaChart,
-    Area,
-    XAxis,
-    YAxis,
-    CartesianGrid,
-    Tooltip,
-    ResponsiveContainer,
-} from "recharts";
+import gold_standard from "../../assets/gold_standard.svg";
+import { AreaChart, Area, XAxis, Tooltip, ResponsiveContainer } from "recharts";
+import { ActiveDot } from "./ActiveDot";
+import CustomTooltip from "./CustomTooltip";
+import AddNewAccount from "../addNewAccount/AddNewAccount";
 
-const Dashboard = () => {
+const Dashboard = (props) => {
     const data = [
-        { price: "Page A", date: 4000, pv: 2400, amt: 2400 },
-        { price: "Page B", date: 3000, pv: 1398, amt: 2210 },
-        { price: "Page C", date: 2000, pv: 6800, amt: 2290 },
-        { price: "Page D", date: 2780, pv: 3908, amt: 2000 },
-        { price: "Page E", date: 1890, pv: 4800, amt: 2181 },
-        { price: "Page F", date: 2390, pv: 3800, amt: 2500 },
-        { price: "Page G", date: 3490, pv: 4300, amt: 2100 },
-        { price: "Page A", date: 4000, pv: 2400, amt: 2400 },
-        { price: "Page B", date: 3000, pv: 1398, amt: 2210 },
-        { price: "Page C", date: 2000, pv: 9200, amt: 2290 },
-        { price: "Page D", date: 2780, pv: 3908, amt: 2000 },
-        { price: "Page E", date: 1890, pv: 4800, amt: 2181 },
-        { price: "Page F", date: 2390, pv: 3800, amt: 2500 },
-        { price: "Page G", date: 3490, pv: 4300, amt: 2100 },
+        { price: "USD 1332.76", p: 1332.76, date: "10.11.2020 18:19:22" },
+        { price: "USD 1412.29", p: 1412.29, date: "10.11.2020 18:19:22" },
+        { price: "USD 1729.94", p: 1729.94, date: "10.11.2020 18:19:22" },
+        { price: "USD 2582.41", p: 2582.41, date: "10.11.2020 18:19:22" },
+        { price: "USD 1973.55", p: 1973.55, date: "10.11.2020 18:19:22" },
+        { price: "USD 1894.80", p: 1894.8, date: "10.11.2020 18:19:22" },
+        { price: "USD 1203.36", p: 1203.36, date: "10.11.2020 18:19:22" },
+        { price: "USD 2398.72", p: 2398.72, date: "10.11.2020 18:19:22" },
+        { price: "USD 2155.61", p: 2155.61, date: "10.11.2020 18:19:22" },
+        { price: "USD 1781.11", p: 1781.11, date: "10.11.2020 18:19:22" },
+        { price: "USD 1332.76", p: 1332.76, date: "10.11.2020 18:19:22" },
+        { price: "USD 1412.29", p: 1412.29, date: "10.11.2020 18:19:22" },
+        { price: "USD 1729.94", p: 1729.94, date: "10.11.2020 18:19:22" },
+        { price: "USD 2582.41", p: 2582.41, date: "10.11.2020 18:19:22" },
+        { price: "USD 1973.55", p: 1973.55, date: "10.11.2020 18:19:22" },
+        { price: "USD 1894.80", p: 1894.8, date: "10.11.2020 18:19:22" },
+        { price: "USD 1203.36", p: 1203.36, date: "10.11.2020 18:19:22" },
+        { price: "USD 2398.72", p: 2398.72, date: "10.11.2020 18:19:22" },
+        { price: "USD 2155.61", p: 2155.61, date: "10.11.2020 18:19:22" },
+        { price: "USD 1781.11", p: 1781.11, date: "10.11.2020 18:19:22" },
+        { price: "USD 2155.61", p: 2155.61, date: "10.11.2020 18:19:22" },
+        { price: "USD 1781.11", p: 1781.11, date: "10.11.2020 18:19:22" },
+        { price: "USD 1332.76", p: 1332.76, date: "10.11.2020 18:19:22" },
+        { price: "USD 1412.29", p: 1412.29, date: "10.11.2020 18:19:22" },
+        { price: "USD 1729.94", p: 1729.94, date: "10.11.2020 18:19:22" },
     ];
+
+    const [newAccountModal, setNewAccountModal] = useState(false);
+
+    const reducer = useSelector((state) => state.reducers);
+
+    useEffect(() => {
+        props.getAccounts();
+        // eslint-disable-next-line
+    }, []);
+
+    useEffect(() => {
+        ReactDOM.render(
+            <React.StrictMode>
+                <Provider store={store}>
+                    {newAccountModal && (
+                        <AddNewAccount
+                            setNewAccountModal={setNewAccountModal}
+                        />
+                    )}
+                </Provider>
+            </React.StrictMode>,
+            document.getElementById("modal")
+        );
+    }, [newAccountModal]);
+
+    if (newAccountModal) {
+        document.getElementById("root").style.opacity = "0.1";
+        document.body.classList.add("modal-open");
+        document.getElementById("root").style.pointerEvents = "none";
+    } else {
+        document.getElementById("root").style.opacity = "1";
+        document.body.classList.remove("modal-open");
+        document.getElementById("root").style.pointerEvents = "auto";
+    }
+
+    const addNewAccountButton = () => {
+        setNewAccountModal(true);
+    };
 
     return (
         <div className="dashboard-container">
             <h2 className="dashboard-title">MY PORTFOLIO</h2>
             <div className="balance-box">
                 <div className="balance-coin-div">
-                    <p className="my-balance">0</p>
+                    <p className="my-balance">{reducer.user.balance}</p>
                     <img src={coin} className="balance-coin" alt="coin" />
                 </div>
                 <p className="total-balance">TOTAL BALANCE</p>
                 <hr className="balance-box-line" />
+                {reducer.accounts.length > 0 && (
+                    <div className="buy-send-gold-container">
+                        <Link to="/buy-sell" className="buy-send-gold-link">
+                            <button className="buy-send-gold-button">
+                                BUY G1
+                            </button>
+                        </Link>
+                        <Link to="/buy-sell" className="buy-send-gold-link">
+                            <button className="buy-send-gold-button">
+                                SELL G1
+                            </button>
+                        </Link>
+                    </div>
+                )}
+                {reducer.accounts.length !== 0 &&
+                    reducer.accounts.map((acc) => {
+                        return (
+                            <div key={acc.id} className="accounts-container">
+                                <img
+                                    src={gold_standard}
+                                    className="accounts-gold-icon"
+                                    alt="gold icon"
+                                />
+                                <div className="accounts-currency">
+                                    {acc.currency}
+                                </div>
+                                <div className="accounts-balance">
+                                    {acc.balance}
+                                </div>
+                            </div>
+                        );
+                    })}
                 <button
                     className="add-new-account-button"
-                    onClick={() => alert("Add an account.")}
+                    onClick={addNewAccountButton}
                 >
                     <img src={plus} className="plus-icon" alt="plus" />
-                    Add a new account
+                    <span className="add-new-account">Add a new account</span>
                 </button>
             </div>
             <h2 className="dashboard-title">PRICE CHART</h2>
@@ -76,7 +159,15 @@ const Dashboard = () => {
                 <hr className="chart-box-line" />
                 <div className="chart-container">
                     <ResponsiveContainer>
-                        <AreaChart data={data}>
+                        <AreaChart
+                            data={data}
+                            margin={{
+                                top: 0,
+                                left: 0,
+                                right: 0,
+                                bottom: 0,
+                            }}
+                        >
                             <defs>
                                 <linearGradient
                                     id="colorUv"
@@ -119,33 +210,15 @@ const Dashboard = () => {
                             <XAxis dataKey="price" hide />
 
                             <Tooltip
-                                separator={" - "}
-                                cursor={{ stroke: "#D8D8D8", strokeWidth: 0.5 }}
+                                content={<CustomTooltip data={data} />}
+                                cursor={false}
                             />
 
                             <Area
-                                activeDot={{
-                                    stroke: "#Fff",
-                                    strokeWidth: 3,
-                                    r: 6,
-                                }}
+                                activeDot={<ActiveDot />}
                                 strokeWidth={4}
                                 type="monotone"
-                                dataKey="uv"
-                                stroke="#DC9A00"
-                                fillOpacity={1}
-                                fill="url(#colorUv)"
-                            />
-
-                            <Area
-                                activeDot={{
-                                    stroke: "#Fff",
-                                    strokeWidth: 3,
-                                    r: 6,
-                                }}
-                                strokeWidth={4}
-                                type="monotone"
-                                dataKey="pv"
+                                dataKey="p"
                                 stroke="#DC9A00"
                                 fillOpacity={1}
                                 fill="url(#colorPv)"
@@ -158,4 +231,4 @@ const Dashboard = () => {
     );
 };
 
-export default Dashboard;
+export default connect(null, { getAccounts })(Dashboard);

@@ -1,36 +1,47 @@
 @import '../../App'
 
-.verification-container
+.process-one-container
     margin: 90px 16px 30px 16px
     text-align: center
 
-    .verification-title
+    .process-one-pagination
+        display: grid
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr
+        align-items: center
+        gap: 0 8px
+        width: 288px
+        margin: 0 auto
+
+        .process-one-page-selected
+            font-family: 'Times New Roman'
+            background: $light-blue-gradient
+            color: white
+            width: 40px
+            height: 40px
+            border-radius: 50%
+            padding-top: 10px
+
+        .process-one-page-unselected
+            font-family: 'Times New Roman'
+            border: 1px solid $washed-blue
+            color: $washed-blue
+            width: 40px
+            height: 40px
+            border-radius: 50%
+            padding-top: 10px
+
+        .process-one-hr
+            border: none
+            border-top: 2px solid $washed-blue
+
+    .process-one-title
         font-family: 'Times New Roman'
         font-size: 24px
-        background: $title-background
-        -webkit-background-clip: text
-        -webkit-text-fill-color: transparent
-        display: inline-block
-        position: relative
-
-        &::after
-            content: "2-STEP VERIFICATION"
-            left: 0
-            top: 0
-            position: absolute
-            text-shadow: $title-shadow
-            z-index: -1
-
-    .verification-form
-        box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.321048)
         margin-top: 30px
-        padding: 30px 20px
+        color: $dark-grey
 
-        .verification-instruction
-            line-height: 24px
-            color: $standard-grey
-
-        .code-input
+    .process-one-form
+        .process-one-code-input
             width: 100%
             border: 1px solid $washed-grey
             color: $washed-grey
@@ -43,13 +54,13 @@
             appearance: none
             text-align: center
             letter-spacing: 10px
-            height: 50.4px
+            height: 50px
 
             &:focus
                 border: 1px solid $dark-grey
                 color: $dark-grey
 
-        .code-input-filled
+        .process-one-code-input-filled
             width: 100%
             border: 1px solid $dark-grey
             color: $dark-grey
@@ -63,19 +74,83 @@
             text-align: center
             font-weight: bold
             letter-spacing: 10px
-            height: 50.4px
+            height: 50px
             font-size: 20px
 
             &:focus
                 border: 1px solid $dark-grey
                 color: $dark-grey
 
-        .didnt-get-code
+        .process-one-didnt-get-code
             color: $standard-grey
             text-decoration: underline
             margin-top: 30px
 
-        .verification-button
+        .process-one-form-phone
+            display: grid
+            grid-template-columns: 125px 1fr
+            gap: 0 10px
+            margin-top: 30px
+            position: relative
+
+            .process-one-format-arrow
+                border: 1px solid $dark-grey
+                padding: 15px 0
+
+                .process-one-format
+                    font-size: 14px
+                    color: $dark-grey
+                    font-weight: bold
+
+                .process-one-arrow
+                    margin-left: 5px
+
+            .process-one-input
+                width: 100%
+                border: 1px solid $washed-grey
+                color: $washed-grey
+                padding: 15px 10px
+                outline: none
+                -webkit-border-radius: 0px
+                -webkit-appearance: none
+                border-radius: 0px
+                appearance: none
+                font-size: 14px
+
+                &:focus
+                    border: 1px solid $dark-grey
+                    color: $dark-grey
+
+            .process-one-input-filled
+                width: 100%
+                border: 1px solid $dark-grey
+                color: $dark-grey
+                padding: 15px 10px
+                outline: none
+                -webkit-border-radius: 0px
+                -webkit-appearance: none
+                border-radius: 0px
+                appearance: none
+                font-size: 14px
+                font-weight: bold
+
+                &:focus
+                    border: 1px solid $dark-grey
+                    color: $dark-grey
+
+            .process-one-checkmark
+                position: absolute
+                right: 0
+                margin-right: 10px
+                margin-top: 19px
+
+        .process-one-instruction
+            line-height: 24px
+            color: $standard-grey
+            margin-top: 30px
+            text-align: left
+
+        .process-one-button
             width: 100%
             height: 50px
             font-size: 16px

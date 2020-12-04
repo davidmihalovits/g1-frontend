@@ -1,24 +1,40 @@
 import React, { useState } from "react";
 import "./ProcessThree.sass";
-import selectArrow from "../../assets/selectArrow.svg";
+import selectArrow from "../../../assets/selectArrow.svg";
+import ProcessFour from "../processFour/ProcessFour";
 
-const ProcessThree = () => {
+const ProcessThree = (props) => {
     const [use, setUse] = useState("Select");
     const [source, setSource] = useState("Select");
     const [current, setCurrent] = useState("Select");
     const [employer, setEmployer] = useState("");
+    const [processFour, setProcessFour] = useState(false);
 
     const submit = (e) => {
         e.preventDefault();
 
-        alert("Submit.");
+        setProcessFour(true);
     };
 
-    const disabled =
-        employer.length > 0 &&
-        use !== "Select" &&
-        source !== "Select" &&
-        current !== "Select";
+    const disabled = employer.length > 0;
+
+    if (processFour) {
+        return (
+            <ProcessFour
+                format={props.format}
+                phone={props.phone}
+                firstName={props.firstName}
+                lastName={props.lastName}
+                month={props.month}
+                day={props.day}
+                year={props.year}
+                street={props.street}
+                city={props.city}
+                zip={props.zip}
+                employer={employer}
+            />
+        );
+    }
 
     return (
         <div className="process-three-container">

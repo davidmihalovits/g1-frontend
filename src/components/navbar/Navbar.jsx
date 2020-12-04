@@ -1,6 +1,7 @@
 import React from "react";
 import "./Navbar.sass";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 import logo from "../../assets/logo.svg";
 import logo2 from "../../assets/logo2.svg";
 import hamburger from "../../assets/hamburger.svg";
@@ -9,20 +10,23 @@ import dashboard from "../../assets/dashboard.svg";
 import buysell from "../../assets/buysell.svg";
 import send from "../../assets/send.svg";
 import search from "../../assets/search.svg";
-import profilePic from "../../assets/profilePic.png";
+import noImg from "../../assets/noimg.png";
 
 const Navbar = () => {
-    const location = useLocation();
-    const authenticated = true;
+    const reducer = useSelector((state) => state.reducers);
 
-    if (authenticated && location.pathname === "/dashboard") {
+    if (reducer.authenticated && reducer.user.verified) {
         return (
             <div className="navbar-container-auth-true">
                 <div className="navbar-top-auth-true">
                     <div className="navbar-top-inner">
                         <img src={logo2} className="navbar-logo" alt="logo" />
                         <div className="navbar-button-bell-group">
-                            <button className="navbar-button">DEPOSIT</button>
+                            <Link to="/deposit" className="navbar-button-link">
+                                <button className="navbar-button">
+                                    DEPOSIT
+                                </button>
+                            </Link>
                             <img
                                 src={bell}
                                 className="navbar-bell"
@@ -33,31 +37,58 @@ const Navbar = () => {
                 </div>
                 <div className="navbar-bottom-auth-true">
                     <div className="navbar-bottom-inner">
-                        <img
-                            src={dashboard}
-                            className="navbar-bottom-icon"
-                            alt="icon"
-                        />
-                        <img
-                            src={buysell}
-                            className="navbar-bottom-icon"
-                            alt="icon"
-                        />
-                        <img
-                            src={send}
-                            className="navbar-bottom-icon"
-                            alt="icon"
-                        />
-                        <img
-                            src={search}
-                            className="navbar-bottom-icon"
-                            alt="icon"
-                        />
-                        <img
-                            src={profilePic}
-                            className="navbar-bottom-icon"
-                            alt="icon"
-                        />
+                        <Link
+                            className="navbar-bottom-icon-link"
+                            to="/dashboard"
+                        >
+                            <img
+                                src={dashboard}
+                                className="navbar-bottom-icon"
+                                alt="icon"
+                            />
+                        </Link>
+                        <Link
+                            className="navbar-bottom-icon-link"
+                            to="/buy-sell"
+                        >
+                            <img
+                                src={buysell}
+                                className="navbar-bottom-icon"
+                                alt="icon"
+                            />
+                        </Link>
+                        <Link className="navbar-bottom-icon-link" to="/send">
+                            <img
+                                src={send}
+                                className="navbar-bottom-icon"
+                                alt="icon"
+                            />
+                        </Link>
+                        <Link
+                            className="navbar-bottom-icon-link"
+                            to="/dashboard"
+                        >
+                            <img
+                                src={search}
+                                className="navbar-bottom-icon"
+                                alt="icon"
+                            />
+                        </Link>
+                        <Link className="navbar-bottom-icon-link" to="/profile">
+                            {reducer.user.image ? (
+                                <img
+                                    className="navbar-bottom-profile-pic"
+                                    src={reducer.user.image}
+                                    alt=""
+                                />
+                            ) : (
+                                <img
+                                    className="navbar-bottom-profile-pic"
+                                    src={noImg}
+                                    alt=""
+                                />
+                            )}
+                        </Link>
                     </div>
                 </div>
             </div>
@@ -71,7 +102,9 @@ const Navbar = () => {
                     <img src={logo} className="navbar-logo" alt="logo" />
                 </Link>
                 <div className="navbar-button-hamburger-group">
-                    <button className="navbar-button">GET STARTED</button>
+                    <Link to="/signup" className="navbar-button-link">
+                        <button className="navbar-button">GET STARTED</button>
+                    </Link>
                     <img
                         src={hamburger}
                         className="navbar-hamburger"

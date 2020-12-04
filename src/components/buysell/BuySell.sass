@@ -1,0 +1,279 @@
+@import '../../App'
+
+.buysell-container
+    padding: 50px 16px 100px 16px
+    background-color: $background-grey
+
+    .buysell-title
+        font-size: 12px
+        font-weight: bold
+        color: $washed-blue
+        margin-top: 20px
+
+    .buysell-box
+        background-color: white
+        margin-top: 10px
+        border-radius: 5px
+        box-shadow: 0px 2px 43px rgba(147, 147, 147, 0.420771)
+        padding: 20px 12px
+
+        .buysell-box-title
+            font-size: 12px
+            font-weight: bold
+            color: $standard-turquoise
+
+        .buysell-box-cryptocurrency
+            display: grid
+            grid-template-columns: 40px 1fr 1fr
+            align-items: center
+            font-size: 14px
+            border: 1px solid $dark-grey
+            color: $dark-grey
+            padding: 0 10px
+            height: 54px
+            margin: 10px 0 20px 0
+            outline: none
+            -webkit-border-radius: 0px
+            -webkit-appearance: none
+            border-radius: 0px
+            appearance: none
+
+            .buysell-box-coin-icon
+                width: 30px
+                height: 30px
+
+            .buysell-box-coin
+                font-size: 16px
+                font-weight: bold
+                color: $standard-turquoise
+
+            .buysell-box-balance
+                font-size: 16px
+                font-weight: bold
+                color: $washed-blue
+                justify-self: end
+
+        .buysell-box-accounts
+            display: grid
+            grid-template-columns: 40px 1fr 12px
+            align-items: center
+            font-size: 14px
+            border: 1px solid $dark-grey
+            color: $dark-grey
+            padding: 0 10px
+            height: 54px
+            margin: 10px 0 20px 0
+            outline: none
+            -webkit-border-radius: 0px
+            -webkit-appearance: none
+            border-radius: 0px
+            appearance: none
+
+            .buysell-box-accounts-gold-icon
+                height: 30px
+                width: 30px
+
+            .buysell-box-accounts-wallet-balance
+                .buysell-box-accounts-currency
+                    color: $standard-turquoise
+                    font-weight: bold
+
+                .buysell-box-accounts-balance
+                    font-size: 12px
+                    font-weight: bold
+                    color: $standard-grey
+
+        .buysell-box-dropdown-container
+            position: relative
+
+            .buysell-box-dropdown
+                max-height: 90px
+                overflow-y: scroll
+                position: absolute
+                background-color: white
+                z-index: 1
+                width: 100%
+                border: 1px solid $dark-grey
+                border-top: none
+                margin-top: -20px
+
+                .buysell-box-dropdown-accounts
+                    display: grid
+                    grid-template-columns: 40px 1fr
+                    align-items: center
+                    font-size: 14px
+                    border-top: 1px solid $dark-grey
+                    color: $dark-grey
+                    padding: 0 10px
+                    height: 54px
+                    outline: none
+                    -webkit-border-radius: 0px
+                    -webkit-appearance: none
+                    border-radius: 0px
+                    appearance: none
+
+        .buysell-box-limit
+            font-size: 14px
+            font-weight: bold
+            margin-top: 10px
+
+        .buysell-box-convert
+            display: grid
+            grid-template-columns: 1fr 22px 1fr
+            align-items: center
+            margin-top: 10px
+            gap: 0 15px
+
+            .buysell-box-convert-icon
+                width: 22px
+                height: 18px
+
+            .buysell-box-amount-box
+                position: relative
+
+                .buysell-box-amount
+                    width: 100%
+                    border: 1px solid $washed-grey
+                    color: $washed-grey
+                    padding: 0 10px
+                    height: 54px
+                    outline: none
+                    -webkit-border-radius: 0px
+                    -webkit-appearance: none
+                    border-radius: 0px
+                    appearance: none
+                    font-size: 14px
+
+                    &:focus
+                        border: 1px solid $dark-grey
+                        color: $dark-grey
+
+                .buysell-box-amount-filled
+                    width: 100%
+                    border: 1px solid $dark-grey
+                    color: $dark-grey
+                    padding: 0 10px
+                    height: 54px
+                    outline: none
+                    -webkit-border-radius: 0px
+                    -webkit-appearance: none
+                    border-radius: 0px
+                    appearance: none
+                    font-size: 14px
+
+                    &:focus
+                        border: 1px solid $dark-grey
+                        color: $dark-grey
+
+                .buysell-box-input-currency
+                    position: absolute
+                    top: 0
+                    right: 0
+                    margin-right: 10px
+                    font-size: 13px
+                    font-weight: bold
+                    margin-top: 18px
+
+                .buysell-box-input-coin
+                    position: absolute
+                    top: 0
+                    right: 0
+                    margin-right: 10px
+                    width: 22px
+                    height: 22px
+                    margin-top: 15px
+
+    .buysell-confirmation-box
+        background-color: white
+        margin-top: 20px
+        border-radius: 5px
+        box-shadow: 0px 2px 43px rgba(147, 147, 147, 0.420771)
+        padding: 20px 12px
+
+        .buysell-confirmation-box-title
+            font-size: 14px
+            text-align: center
+            color: $washed-blue
+            font-weight: bold
+
+        .buysell-confirmation-box-amount-coin
+            text-align: center
+            margin-top: 20px
+
+            .buysell-confirmation-box-amount
+                justify-self: end
+                color: $washed-blue
+                font-weight: bold
+                font-size: 40px
+                display: inline
+                vertical-align: middle
+
+            .buysell-confirmation-box-coin
+                width: 40px
+                height: 40px
+                display: inline
+                vertical-align: middle
+                margin-left: 5px
+
+        .buysell-confirmation-box-current
+            font-size: 12px
+            font-weight: bold
+            color: $standard-grey
+            margin-top: 5px
+            text-align: center
+
+        .buysell-confirmation-box-line
+            border: none
+            border-top: 1px solid #D4D4D4
+            margin: 20px 0
+
+        .buysell-confirmation-box-details
+            .buysell-confirmation-box-detail
+                display: grid
+                grid-template-columns: 60px 1fr
+
+                .buysell-confirmation-box-icon
+                    width: 38px
+                    height: 38px
+
+                .buysell-confirmation-box-method
+                    font-size: 12px
+                    font-weight: bold
+                    color: $standard-turquoise
+
+                .buysell-confirmation-box-wallet
+                    font-size: 14px
+                    font-weight: bold
+                    color: $washed-blue
+
+        .buysell-confirmation-box-total
+            display: grid
+            grid-template-columns: 1fr 1fr
+            margin-top: 8px
+
+            .buysell-confirmation-box-start
+            .buysell-confirmation-box-end
+                justify-self: end
+
+    .buysell-box-button-container
+        text-align: center
+        margin-top: 48px
+
+        .buysell-box-button-fees
+            text-decoration: underline
+
+        .buysell-box-button
+            width: 170px
+            height: 54px
+            margin-top: 20px
+            font-size: 16px
+            font-weight: bold
+            color: white
+            background: $yellow-gradient
+            outline: none
+            border: none
+            border-radius: 5px
+            cursor: pointer
+
+            &:disabled
+                background: $light-yellow-gradient

@@ -1,25 +1,20 @@
 import React, { useState } from "react";
 import "./ProcessFour.sass";
-import passport from "../../assets/passport.svg";
-import license from "../../assets/license.svg";
-import id from "../../assets/id.svg";
-import upload from "../../assets/upload.svg";
+import passport from "../../../assets/passport.svg";
+import license from "../../../assets/license.svg";
+import id from "../../../assets/id.svg";
+import upload from "../../../assets/upload.svg";
+import { connect } from "react-redux";
+import { verify } from "../../../redux/actions/actions";
 
-const ProcessFour = () => {
+const ProcessFour = (props) => {
     const [typeChosen, setTypeChosen] = useState(false);
     const [image, setImage] = useState("");
-
-    const submit = (e) => {
-        e.preventDefault();
-
-        alert("Submit.");
-    };
 
     const imageOnChange = (e) => {
         e.preventDefault();
 
         const image = e.target.files[0];
-        console.log(image);
 
         setImage(URL.createObjectURL(image));
     };
@@ -27,7 +22,17 @@ const ProcessFour = () => {
     const verify = (e) => {
         e.preventDefault();
 
-        alert("Verified.");
+        props.verify({
+            phone: `${props.format}${" "}${props.phone}`,
+            firstName: props.firstName,
+            lastName: props.lastName,
+            birthday: `${props.month}/${props.day}/${props.year}`,
+            street: props.street,
+            city: props.city,
+            zip: props.zip,
+            employer: props.employer,
+            identification: "image-url",
+        });
     };
 
     const disabled = image.length > 0;
@@ -129,4 +134,4 @@ const ProcessFour = () => {
     );
 };
 
-export default ProcessFour;
+export default connect(null, { verify })(ProcessFour);

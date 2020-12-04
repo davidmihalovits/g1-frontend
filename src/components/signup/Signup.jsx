@@ -1,12 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Signup.sass";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
+import { connect, useSelector } from "react-redux";
+import { signup } from "../../redux/actions/actions";
 import eye from "../../assets/eye.svg";
 import eyeSlash from "../../assets/eyeSlash.svg";
 import checkboxFalse from "../../assets/checkboxFalse.svg";
 import checkboxTrue from "../../assets/checkboxTrue.svg";
 
-const Signup = () => {
+const Signup = (props) => {
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
     const [email, setEmail] = useState("");
@@ -15,6 +17,16 @@ const Signup = () => {
     const [hiddenPassword, setHiddenPassword] = useState("");
     const [hiddenConfirmPassword, setHiddenConfirmPassword] = useState("");
     const [checked, setChecked] = useState(false);
+
+    const reducer = useSelector((state) => state.reducers);
+
+    const history = useHistory();
+
+    useEffect(() => {
+        if (reducer.authenticated) {
+            history.push("/dashboard");
+        }
+    });
 
     const showPassword = () => {
         setHiddenPassword(!hiddenPassword);
@@ -27,7 +39,16 @@ const Signup = () => {
     const signup = (e) => {
         e.preventDefault();
 
-        alert("Register.");
+        if (password !== confirmPassword) {
+            return;
+        }
+
+        props.signup({
+            firstName: firstName,
+            lastName: lastName,
+            email: email,
+            password: password,
+        });
     };
 
     const disabled =
@@ -82,7 +103,7 @@ const Signup = () => {
                     }
                 />
                 <input
-                    placeholder="Password"
+                    placeholder="Password (min 6)"
                     id="password"
                     name="password"
                     type={hiddenPassword ? "text" : "password"}
@@ -110,7 +131,7 @@ const Signup = () => {
                     />
                 )}
                 <input
-                    placeholder="Confirm Password"
+                    placeholder="Confirm Password (min 6)"
                     id="confirmPassword"
                     name="confirmPassword"
                     type={hiddenConfirmPassword ? "text" : "password"}
@@ -174,4 +195,4 @@ const Signup = () => {
     );
 };
 
-export default Signup;
+export default connect(null, { signup })(Signup);

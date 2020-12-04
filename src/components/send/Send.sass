@@ -1,0 +1,160 @@
+@import '../../App'
+
+.send-container
+    padding: 50px 16px 100px 16px
+    background-color: $background-grey
+
+    .send-title
+        font-size: 12px
+        font-weight: bold
+        color: $washed-blue
+        margin-top: 20px
+
+    .send-box
+        background-color: white
+        margin-top: 10px
+        border-radius: 5px
+        box-shadow: 0px 2px 43px rgba(147, 147, 147, 0.420771)
+        padding: 20px 12px
+
+        .send-box-title
+            font-size: 12px
+            font-weight: bold
+            color: $standard-turquoise
+
+        .send-box-input
+            width: 100%
+            border: 1px solid $washed-grey
+            color: $washed-grey
+            padding: 0 10px
+            height: 54px
+            margin: 10px 0 10px 0
+            outline: none
+            -webkit-border-radius: 0px
+            -webkit-appearance: none
+            border-radius: 0px
+            appearance: none
+            font-size: 14px
+
+            &:focus
+                border: 1px solid $dark-grey
+                color: $dark-grey
+
+        .send-box-input-filled
+            width: 100%
+            border: 1px solid $dark-grey
+            color: $dark-grey
+            padding: 0 10px
+            height: 54px
+            margin: 10px 0 10px 0
+            outline: none
+            -webkit-border-radius: 0px
+            -webkit-appearance: none
+            border-radius: 0px
+            appearance: none
+            font-size: 14px
+
+            &:focus
+                border: 1px solid $dark-grey
+                color: $dark-grey
+
+        .send-box-goldcoin
+            display: grid
+            grid-template-columns: 40px 1fr 1fr
+            align-items: center
+            font-size: 14px
+            border: 1px solid $dark-grey
+            color: $dark-grey
+            padding: 0 10px
+            height: 54px
+            margin: 10px 0 10px 0
+            outline: none
+            -webkit-border-radius: 0px
+            -webkit-appearance: none
+            border-radius: 0px
+            appearance: none
+
+            .send-box-goldcoin-icon
+                width: 30px
+                height: 30px
+
+            .send-box-goldcoin-wallet
+                font-size: 16px
+                font-weight: bold
+                color: $standard-turquoise
+
+            .send-box-goldcoin-balance
+                font-size: 16px
+                font-weight: bold
+                color: $washed-blue
+                justify-self: end
+
+        .send-box-amount-container
+            position: relative
+            width: 50%
+
+            .send-box-input
+                border: 1px solid $washed-grey
+                color: $washed-grey
+                padding: 0 10px
+                height: 54px
+                margin: 10px 0 20px 0
+                outline: none
+                -webkit-border-radius: 0px
+                -webkit-appearance: none
+                border-radius: 0px
+                appearance: none
+                font-size: 14px
+
+                &:focus
+                    border: 1px solid $dark-grey
+                    color: $dark-grey
+
+            .send-box-input-filled
+                border: 1px solid $dark-grey
+                color: $dark-grey
+                padding: 0 10px
+                height: 54px
+                margin: 10px 0 20px 0
+                outline: none
+                -webkit-border-radius: 0px
+                -webkit-appearance: none
+                border-radius: 0px
+                appearance: none
+                font-size: 14px
+
+                &:focus
+                    border: 1px solid $dark-grey
+                    color: $dark-grey
+
+            .send-box-input-coin
+                position: absolute
+                right: 0
+                top: 0
+                height: 30px
+                width: 30px
+                margin-right: 10px
+                margin-top: 21px
+
+    .send-box-button-container
+        text-align: center
+
+        .send-box-button
+            width: 170px
+            height: 54px
+            margin-top: 48px
+            font-size: 16px
+            font-weight: bold
+            color: white
+            background: $yellow-gradient
+            outline: none
+            border: none
+            border-radius: 5px
+            cursor: pointer
+
+            &:disabled
+                background: $light-yellow-gradient
+
+        .send-box-button-cancel
+            margin-top: 20px
+            font-weight: bold
