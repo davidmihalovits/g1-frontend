@@ -13,7 +13,9 @@ import {
     ADD_ACCOUNT,
     DEPOSIT,
     BUY,
-    SEND,
+    SEND_REQUEST,
+    SEND_FAIL,
+    SEND_SUCCESS,
 } from "./types";
 
 export const getProfile = () => (dispatch) => {
@@ -245,6 +247,10 @@ export const buy = (buy) => (dispatch) => {
 export const send = (send) => (dispatch) => {
     const token = localStorage.getItem("token");
 
+    dispatch({
+        type: SEND_REQUEST,
+    });
+
     if (token) {
         fetch("http://localhost:5000/send", {
             method: "PUT",
@@ -256,11 +262,18 @@ export const send = (send) => (dispatch) => {
             body: JSON.stringify(send),
         })
             .then((res) => res.json())
-            .then((res) =>
-                dispatch({
-                    type: SEND,
-                    payload: res,
-                })
-            );
+            .then((res) => {
+                if (res.sender) {
+                    dispatch({
+                        type: SEND_SUCCESS,
+                        payload: res.sender,
+                    });
+                } else if (res.status === "Invalid recipient.") {
+                    dispatch({
+                        type: SEND_FAIL,
+                        payload: res.status,
+                    });
+                }
+            });
     }
 };

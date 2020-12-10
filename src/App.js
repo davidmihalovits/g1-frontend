@@ -17,6 +17,8 @@ import Dashboard from "./components/dashboard/Dashboard";
 import BuySell from "./components/buysell/BuySell";
 import Deposit from "./components/deposit/Deposit";
 import Send from "./components/send/Send";
+import Settings from "./components/settings/Settings";
+import Profile from "./components/settings/profile/Profile";
 
 const App = (props) => {
     const reducer = useSelector((state) => state.reducers);
@@ -49,6 +51,12 @@ const App = (props) => {
                 <PrivateRoute exact path="/buy-sell" component={BuySell} />
                 <PrivateRoute exact path="/deposit" component={Deposit} />
                 <PrivateRoute exact path="/send" component={Send} />
+                <PrivateRoute exact path="/settings" component={Settings} />
+                <PrivateRoute
+                    exact
+                    path="/settings/profile"
+                    component={Profile}
+                />
             </Switch>
             <Footer />
         </BrowserRouter>

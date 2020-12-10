@@ -18,4 +18,7 @@ export const ADD_ACCOUNT = "ADD_ACCOUNT";
 
 export const DEPOSIT = "DEPOSIT";
 export const BUY = "BUY";
-export const SEND = "SEND";
+
+export const SEND_REQUEST = "SEND_REQUEST";
+export const SEND_FAIL = "SEND_FAIL";
+export const SEND_SUCCESS = "SEND_SUCCESS";

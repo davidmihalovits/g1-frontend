@@ -13,7 +13,9 @@ import {
     ADD_ACCOUNT,
     DEPOSIT,
     BUY,
-    SEND,
+    SEND_REQUEST,
+    SEND_FAIL,
+    SEND_SUCCESS,
 } from "../actions/types";
 
 const initialState = {
@@ -97,10 +99,23 @@ export default function (state = initialState, action) {
                 ...state,
                 user: action.payload,
             };
-        case SEND:
+        case SEND_REQUEST:
+            return {
+                ...state,
+                loading: true,
+                error: null,
+            };
+        case SEND_FAIL:
+            return {
+                ...state,
+                loading: false,
+                error: action.payload,
+            };
+        case SEND_SUCCESS:
             return {
                 ...state,
                 user: action.payload,
+                loading: false,
             };
         default:
             return state;

@@ -83,6 +83,7 @@ const Send = (props) => {
             </div>
             {reducer.user.balance > 0 && (
                 <div className="send-box-button-container">
+                    {reducer.error && <p>{reducer.error}</p>}
                     <button
                         className="send-box-button"
                         disabled={!disabled}

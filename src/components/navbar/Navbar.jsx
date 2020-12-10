@@ -9,7 +9,7 @@ import bell from "../../assets/bell.svg";
 import dashboard from "../../assets/dashboard.svg";
 import buysell from "../../assets/buysell.svg";
 import send from "../../assets/send.svg";
-import search from "../../assets/search.svg";
+import chart from "../../assets/chart.svg";
 import noImg from "../../assets/noimg.png";
 
 const Navbar = () => {
@@ -64,17 +64,17 @@ const Navbar = () => {
                                 alt="icon"
                             />
                         </Link>
-                        <Link
-                            className="navbar-bottom-icon-link"
-                            to="/dashboard"
-                        >
+                        <Link className="navbar-bottom-icon-link" to="/chart">
                             <img
-                                src={search}
+                                src={chart}
                                 className="navbar-bottom-icon"
                                 alt="icon"
                             />
                         </Link>
-                        <Link className="navbar-bottom-icon-link" to="/profile">
+                        <Link
+                            className="navbar-bottom-icon-link"
+                            to="/settings"
+                        >
                             {reducer.user.image ? (
                                 <img
                                     className="navbar-bottom-profile-pic"
