@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import ReactDOM from "react-dom";
 import "./Dashboard.sass";
-import { Link, useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { connect, useSelector } from "react-redux";
 import { getAccounts } from "../../redux/actions/actions";
 import { Provider } from "react-redux";
@@ -10,10 +10,13 @@ import coin from "../../assets/coin.svg";
 import plus from "../../assets/plus.svg";
 import selectArrow from "../../assets/selectArrow.svg";
 import gold_standard from "../../assets/gold_standard.svg";
+import more from "../../assets/more.svg";
 import { AreaChart, Area, XAxis, Tooltip, ResponsiveContainer } from "recharts";
 import { ActiveDot } from "./ActiveDot";
 import CustomTooltip from "./CustomTooltip";
 import AddNewAccount from "../addNewAccount/AddNewAccount";
+import dayjs from "dayjs";
+import relativeTime from "dayjs/plugin/relativeTime";
 
 const Dashboard = (props) => {
     const data = [
@@ -78,9 +81,7 @@ const Dashboard = (props) => {
         document.getElementById("root").style.pointerEvents = "auto";
     }
 
-    const addNewAccountButton = () => {
-        setNewAccountModal(true);
-    };
+    dayjs.extend(relativeTime);
 
     return (
         <div className="dashboard-container">
@@ -99,9 +100,9 @@ const Dashboard = (props) => {
                                 BUY G1
                             </button>
                         </Link>
-                        <Link to="/buy-sell" className="buy-send-gold-link">
+                        <Link to="/send" className="buy-send-gold-link">
                             <button className="buy-send-gold-button">
-                                SELL G1
+                                SEND G1
                             </button>
                         </Link>
                     </div>
@@ -115,18 +116,30 @@ const Dashboard = (props) => {
                                     className="accounts-gold-icon"
                                     alt="gold icon"
                                 />
-                                <div className="accounts-currency">
-                                    {acc.currency}
+                                <div className="accounts-currency-created">
+                                    <div className="accounts-currency">
+                                        {acc.currency}
+                                    </div>
+                                    <div className="accounts-created">
+                                        {dayjs(acc.createdAt).format(
+                                            "DD.MM.YYYY"
+                                        )}
+                                    </div>
                                 </div>
                                 <div className="accounts-balance">
                                     {acc.balance}
                                 </div>
+                                <img
+                                    src={more}
+                                    className="accounts-more"
+                                    alt="more"
+                                />
                             </div>
                         );
                     })}
                 <button
                     className="add-new-account-button"
-                    onClick={addNewAccountButton}
+                    onClick={() => setNewAccountModal(true)}
                 >
                     <img src={plus} className="plus-icon" alt="plus" />
                     <span className="add-new-account">Add a new account</span>

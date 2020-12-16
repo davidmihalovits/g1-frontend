@@ -68,25 +68,37 @@
 
         .accounts-container
             display: grid
-            grid-template-columns: 50px 1fr 1fr
+            grid-template-columns: 50px 1fr 1fr 38px
             align-items: center
-            margin-top: 10px
+            margin-top: 14px
 
             .accounts-gold-icon
                 height: 40px
                 width: 40px
 
-            .accounts-currency
+            .accounts-currency-created
                 justify-self: start
-                color: $standard-turquoise
-                font-size: 14px
-                font-weight: bold
+
+                .accounts-currency
+                    text-align: left
+                    color: $standard-turquoise
+                    font-size: 14px
+                    font-weight: bold
+
+                .accounts-created
+                    font-size: 12px
+                    color: $washed-grey
 
             .accounts-balance
                 justify-self: end
                 color: $washed-blue
                 font-weight: bold
-                font-size: 18px
+                font-size: 14px
+
+            .accounts-more
+                justify-self: end
+                width: 31px
+                height: 21px
 
         .add-new-account-button
             margin: 20px auto 0 auto

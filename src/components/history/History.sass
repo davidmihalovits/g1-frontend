@@ -1,0 +1,66 @@
+@import '../../App'
+
+.history-container
+    padding: 70px 16px 100px 16px
+    background-color: $background-grey
+
+    .history-back-link
+        text-decoration: none
+        font-weight: bold
+        color: black
+
+    .history-title
+        font-size: 14px
+        font-weight: 900
+        color: $standard-blue
+        margin-top: 15px
+
+    .history-transaction
+        background-color: white
+        margin-top: 20px
+        border-radius: 5px
+        box-shadow: 0px 2px 43px rgba(147, 147, 147, 0.420771)
+        padding: 12px
+
+        .history-transaction-type-completed
+            display: grid
+            grid-template-columns: 1fr 80px
+            align-items: center
+
+            .history-transaction-type
+                color: $standard-blue
+                font-size: 14px
+                font-weight: bold
+
+            .history-transaction-completed
+                color: white
+                background-color: #7ED321
+                font-weight: 900
+                font-size: 9px
+                text-align: center
+                padding: 5px 7px
+                border-radius: 14px
+
+        .history-transaction-created
+            font-size: 12px
+            color: $standard-grey
+            margin-top: 5px
+
+        .history-transaction-amount-arrow-gold
+            margin-top: 5px
+            display: grid
+            grid-template-columns: auto 13px 1fr
+            align-items: center
+            gap: 0 10px
+
+            .history-transaction-amount
+                font-size: 12px
+                color: $standard-grey
+                font-weight: bold
+
+            .history-transaction-arrow
+
+            .history-transaction-gold
+                font-size: 12px
+                color: $standard-grey
+                font-weight: bold

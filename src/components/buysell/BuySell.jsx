@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./BuySell.sass";
 import { connect, useSelector } from "react-redux";
-import { buy } from "../../redux/actions/actions";
+import { buy, sell } from "../../redux/actions/actions";
 import coin from "../../assets/coin.svg";
 import gold_standard from "../../assets/gold_standard.svg";
 import selectArrow from "../../assets/selectArrow.svg";
@@ -20,6 +20,8 @@ const BuySell = (props) => {
     );
     const [amount1, setAmount1] = useState("");
     const [amount2, setAmount2] = useState("");
+    const [buyActive, setBuyActive] = useState(true);
+    const [sellActive, setSellActive] = useState(false);
 
     const disabled = amount1.length !== 0 && amount2.length !== 0;
 
@@ -27,6 +29,34 @@ const BuySell = (props) => {
         <div className="buysell-container">
             <h1 className="buysell-title">BUY / SELL</h1>
             <div className="buysell-box">
+                <div className="buysell-box-change">
+                    <div
+                        className={
+                            buyActive
+                                ? "buysell-box-change-selected"
+                                : "buysell-box-change-unselected"
+                        }
+                        onClick={() => {
+                            setBuyActive(true);
+                            setSellActive(false);
+                        }}
+                    >
+                        BUY
+                    </div>
+                    <div
+                        className={
+                            sellActive
+                                ? "buysell-box-change-selected"
+                                : "buysell-box-change-unselected"
+                        }
+                        onClick={() => {
+                            setBuyActive(false);
+                            setSellActive(true);
+                        }}
+                    >
+                        SELL
+                    </div>
+                </div>
                 <h2 className="buysell-box-title">CRYPTOCURRENCY</h2>
                 <div className="buysell-box-cryptocurrency">
                     <img
@@ -168,7 +198,7 @@ const BuySell = (props) => {
                 <>
                     <div className="buysell-confirmation-box">
                         <h2 className="buysell-confirmation-box-title">
-                            YOU ARE BUYING
+                            {buyActive ? "YOU ARE BUYING" : "YOU ARE SELLING"}
                         </h2>
                         <div className="buysell-confirmation-box-amount-coin">
                             <p className="buysell-confirmation-box-amount">
@@ -184,42 +214,81 @@ const BuySell = (props) => {
                             @1754.88 per G1
                         </p>
                         <hr className="buysell-confirmation-box-line" />
-                        <div className="buysell-confirmation-box-details">
-                            <div className="buysell-confirmation-box-detail">
-                                <img
-                                    src={gold_standard}
-                                    alt="gold"
-                                    className="buysell-confirmation-box-icon"
-                                />
-                                <div>
-                                    <p className="buysell-confirmation-box-method">
-                                        PAYMENT METHOD
-                                    </p>
-                                    <p className="buysell-confirmation-box-wallet">
-                                        {selectedWallet}
-                                    </p>
+                        {buyActive ? (
+                            <div className="buysell-confirmation-box-details">
+                                <div className="buysell-confirmation-box-detail">
+                                    <img
+                                        src={gold_standard}
+                                        alt="gold"
+                                        className="buysell-confirmation-box-icon"
+                                    />
+                                    <div>
+                                        <p className="buysell-confirmation-box-method">
+                                            WITHDRAW FROM
+                                        </p>
+                                        <p className="buysell-confirmation-box-wallet">
+                                            {selectedWallet} Wallet
+                                        </p>
+                                    </div>
+                                </div>
+                                <div className="buysell-confirmation-box-detail">
+                                    <div></div>
+                                    <hr className="buysell-confirmation-box-line" />
+                                </div>
+                                <div className="buysell-confirmation-box-detail">
+                                    <img
+                                        src={account}
+                                        alt="account"
+                                        className="buysell-confirmation-box-icon"
+                                    />
+                                    <div>
+                                        <p className="buysell-confirmation-box-method">
+                                            DEPOSIT TO
+                                        </p>
+                                        <p className="buysell-confirmation-box-wallet">
+                                            G1 Wallet
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
-                            <div className="buysell-confirmation-box-detail">
-                                <div></div>
-                                <hr className="buysell-confirmation-box-line" />
-                            </div>
-                            <div className="buysell-confirmation-box-detail">
-                                <img
-                                    src={account}
-                                    alt="account"
-                                    className="buysell-confirmation-box-icon"
-                                />
-                                <div>
-                                    <p className="buysell-confirmation-box-method">
-                                        DEPOSIT TO
-                                    </p>
-                                    <p className="buysell-confirmation-box-wallet">
-                                        G1 Wallet
-                                    </p>
+                        ) : (
+                            <div className="buysell-confirmation-box-details">
+                                <div className="buysell-confirmation-box-detail">
+                                    <img
+                                        src={account}
+                                        alt="account"
+                                        className="buysell-confirmation-box-icon"
+                                    />
+                                    <div>
+                                        <p className="buysell-confirmation-box-method">
+                                            WITHDRAW FROM
+                                        </p>
+                                        <p className="buysell-confirmation-box-wallet">
+                                            G1 Wallet
+                                        </p>
+                                    </div>
+                                </div>
+                                <div className="buysell-confirmation-box-detail">
+                                    <div></div>
+                                    <hr className="buysell-confirmation-box-line" />
+                                </div>
+                                <div className="buysell-confirmation-box-detail">
+                                    <img
+                                        src={gold_standard}
+                                        alt="gold"
+                                        className="buysell-confirmation-box-icon"
+                                    />
+                                    <div>
+                                        <p className="buysell-confirmation-box-method">
+                                            DEPOSIT TO
+                                        </p>
+                                        <p className="buysell-confirmation-box-wallet">
+                                            {selectedWallet} Wallet
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        )}
                         <hr className="buysell-confirmation-box-line" />
                         <div className="buysell-confirmation-box-total">
                             <p className="buysell-confirmation-box-start">
@@ -236,7 +305,7 @@ const BuySell = (props) => {
                             </p>
                             <p className="buysell-confirmation-box-end">
                                 {selectedWallet}
-                                {Number(amount1).toFixed(3) / 100}
+                                {(Number(amount1).toFixed(3) / 100).toFixed(3)}
                             </p>
                         </div>
                         <div className="buysell-confirmation-box-total">
@@ -258,26 +327,64 @@ const BuySell = (props) => {
                         <p className="buysell-box-button-fees">
                             Learn more about our fees here
                         </p>
-                        <button
-                            className="buysell-box-button"
-                            disabled={!disabled}
-                            onClick={() => {
-                                props.buy({
-                                    currency: selectedWallet,
-                                    amount: Number(
-                                        parseFloat(Number(amount1).toFixed(3)) +
+                        {buyActive && (
+                            <button
+                                className="buysell-box-button"
+                                disabled={!disabled}
+                                onClick={() => {
+                                    props.buy({
+                                        currency: selectedWallet,
+                                        amount: Number(
                                             parseFloat(
-                                                Number(amount1).toFixed(3) / 100
-                                            )
-                                    ).toFixed(3),
-                                    goldAmount: amount2,
-                                });
-                                setAmount1("");
-                                setAmount2("");
-                            }}
-                        >
-                            BUY G1
-                        </button>
+                                                Number(amount1).toFixed(3)
+                                            ) +
+                                                parseFloat(
+                                                    Number(amount1).toFixed(3) /
+                                                        100
+                                                )
+                                        ).toFixed(3),
+                                        goldAmount: amount2,
+                                        type: "Buy",
+                                        fee: (
+                                            Number(amount1).toFixed(3) / 100
+                                        ).toFixed(3),
+                                    });
+                                    setAmount1("");
+                                    setAmount2("");
+                                }}
+                            >
+                                BUY G1
+                            </button>
+                        )}
+                        {sellActive && (
+                            <button
+                                className="buysell-box-button"
+                                disabled={!disabled}
+                                onClick={() => {
+                                    props.sell({
+                                        currency: selectedWallet,
+                                        amount: Number(
+                                            parseFloat(
+                                                Number(amount1).toFixed(3)
+                                            ) +
+                                                parseFloat(
+                                                    Number(amount1).toFixed(3) /
+                                                        100
+                                                )
+                                        ).toFixed(3),
+                                        goldAmount: amount2,
+                                        type: "Sell",
+                                        fee: (
+                                            Number(amount1).toFixed(3) / 100
+                                        ).toFixed(3),
+                                    });
+                                    setAmount1("");
+                                    setAmount2("");
+                                }}
+                            >
+                                SELL G1
+                            </button>
+                        )}
                     </div>
                 </>
             )}
@@ -285,4 +392,4 @@ const BuySell = (props) => {
     );
 };
 
-export default connect(null, { buy })(BuySell);
+export default connect(null, { buy, sell })(BuySell);

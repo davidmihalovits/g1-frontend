@@ -1,0 +1,77 @@
+@import '../../App'
+
+.accountswallets-container
+    padding: 50px 16px 100px 16px
+    background-color: $background-grey
+
+    .accountswallets-title
+        font-size: 12px
+        font-weight: bold
+        color: $washed-blue
+        margin-top: 20px
+
+    .accountswallets-box
+        background-color: white
+        margin-top: 10px
+        border-radius: 5px
+        box-shadow: 0px 2px 43px rgba(147, 147, 147, 0.420771)
+        padding: 20px
+
+        .accountswallets-box-title
+            font-size: 14px
+            font-weight: 900
+            color: $standard-blue
+            text-align: center
+
+        .accountswallets-box-line
+            border: none
+            border-top: 1px solid #D4D4D4
+            margin: 20px 0
+
+        .accountswallets-wallet
+            .accountswallets-wallet-top
+                display: grid
+                grid-template-columns: 48px 1fr
+                align-items: center
+
+                .accountswallets-wallet-gold-icon
+                    width: 38px
+                    height: 38px
+
+                .accountswallets-wallet-currency
+                    font-size: 14px
+                    font-weight: bold
+                    color: $standard-turquoise
+
+                .accountswallets-wallet-balance
+                    font-size: 12px
+                    font-weight: bold
+                    color: $standard-grey
+
+            .accountswallets-wallet-bottom
+                margin-top: 12px
+                display: grid
+                grid-template-columns: 1fr 1fr 38px
+                gap: 0 10px
+
+                .accountswallets-wallet-bottom-button-link
+                    .accountswallets-wallet-bottom-button
+                        color: $washed-grey
+                        border: 1px solid $washed-grey
+                        border-radius: 3px
+                        background-color: white
+                        height: 38px
+                        outline: none
+                        font-size: 14px
+                        width: 100%
+
+                        .accountswallets-wallet-bottom-arrow
+                            height: 14px
+                            width: 11px
+                            margin-right: 5px
+                            vertical-align: middle
+
+                        .accountswallets-wallet-bottom-more
+                            vertical-align: middle
+                            height: 4px
+                            width: 16px

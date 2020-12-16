@@ -19,6 +19,8 @@ import Deposit from "./components/deposit/Deposit";
 import Send from "./components/send/Send";
 import Settings from "./components/settings/Settings";
 import Profile from "./components/settings/profile/Profile";
+import Accounts from "./components/accounts/Accounts";
+import History from "./components/history/History";
 
 const App = (props) => {
     const reducer = useSelector((state) => state.reducers);
@@ -57,6 +59,12 @@ const App = (props) => {
                     path="/settings/profile"
                     component={Profile}
                 />
+                <PrivateRoute
+                    exact
+                    path="/settings/history"
+                    component={History}
+                />
+                <PrivateRoute exact path="/accounts" component={Accounts} />
             </Switch>
             <Footer />
         </BrowserRouter>

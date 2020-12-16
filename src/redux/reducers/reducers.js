@@ -9,13 +9,17 @@ import {
     SIGNUP_FAIL,
     VERIFY,
     LOGOUT,
+    CHANGE_PASSWORD,
     GET_ACCOUNTS,
     ADD_ACCOUNT,
     DEPOSIT,
     BUY,
+    SELL,
     SEND_REQUEST,
     SEND_FAIL,
     SEND_SUCCESS,
+    UPDATE_PROFILE,
+    GET_HISTORY,
 } from "../actions/types";
 
 const initialState = {
@@ -24,6 +28,7 @@ const initialState = {
     loading: false,
     error: null,
     accounts: [],
+    transactions: [],
 };
 
 export default function (state = initialState, action) {
@@ -99,6 +104,11 @@ export default function (state = initialState, action) {
                 ...state,
                 user: action.payload,
             };
+        case SELL:
+            return {
+                ...state,
+                user: action.payload,
+            };
         case SEND_REQUEST:
             return {
                 ...state,
@@ -116,6 +126,30 @@ export default function (state = initialState, action) {
                 ...state,
                 user: action.payload,
                 loading: false,
+            };
+        case UPDATE_PROFILE:
+            return {
+                ...state,
+                user: action.payload,
+            };
+        case CHANGE_PASSWORD:
+            return {
+                ...state,
+                user: action.payload,
+            };
+        case GET_HISTORY:
+            return {
+                ...state,
+                transactions: action.payload,
+            };
+        case LOGOUT:
+            return {
+                user: {},
+                authenticated: false,
+                loading: false,
+                error: null,
+                accounts: [],
+                transactions: [],
             };
         default:
             return state;

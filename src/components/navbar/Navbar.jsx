@@ -9,8 +9,8 @@ import bell from "../../assets/bell.svg";
 import dashboard from "../../assets/dashboard.svg";
 import buysell from "../../assets/buysell.svg";
 import send from "../../assets/send.svg";
-import chart from "../../assets/chart.svg";
-import noImg from "../../assets/noimg.png";
+import menu from "../../assets/menu.svg";
+import accounts from "../../assets/accounts.svg";
 
 const Navbar = () => {
     const reducer = useSelector((state) => state.reducers);
@@ -64,9 +64,12 @@ const Navbar = () => {
                                 alt="icon"
                             />
                         </Link>
-                        <Link className="navbar-bottom-icon-link" to="/chart">
+                        <Link
+                            className="navbar-bottom-icon-link"
+                            to="/accounts"
+                        >
                             <img
-                                src={chart}
+                                src={accounts}
                                 className="navbar-bottom-icon"
                                 alt="icon"
                             />
@@ -75,19 +78,11 @@ const Navbar = () => {
                             className="navbar-bottom-icon-link"
                             to="/settings"
                         >
-                            {reducer.user.image ? (
-                                <img
-                                    className="navbar-bottom-profile-pic"
-                                    src={reducer.user.image}
-                                    alt=""
-                                />
-                            ) : (
-                                <img
-                                    className="navbar-bottom-profile-pic"
-                                    src={noImg}
-                                    alt=""
-                                />
-                            )}
+                            <img
+                                src={menu}
+                                className="navbar-bottom-icon"
+                                alt="icon"
+                            />
                         </Link>
                     </div>
                 </div>

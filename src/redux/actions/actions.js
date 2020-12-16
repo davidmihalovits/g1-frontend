@@ -9,13 +9,17 @@ import {
     SIGNUP_FAIL,
     VERIFY,
     LOGOUT,
+    CHANGE_PASSWORD,
     GET_ACCOUNTS,
     ADD_ACCOUNT,
     DEPOSIT,
     BUY,
+    SELL,
     SEND_REQUEST,
     SEND_FAIL,
     SEND_SUCCESS,
+    UPDATE_PROFILE,
+    GET_HISTORY,
 } from "./types";
 
 export const getProfile = () => (dispatch) => {
@@ -244,6 +248,29 @@ export const buy = (buy) => (dispatch) => {
     }
 };
 
+export const sell = (sell) => (dispatch) => {
+    const token = localStorage.getItem("token");
+
+    if (token) {
+        fetch("http://localhost:5000/sell", {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json",
+                Accept: "application/json",
+                token: token,
+            },
+            body: JSON.stringify(sell),
+        })
+            .then((res) => res.json())
+            .then((res) =>
+                dispatch({
+                    type: SELL,
+                    payload: res,
+                })
+            );
+    }
+};
+
 export const send = (send) => (dispatch) => {
     const token = localStorage.getItem("token");
 
@@ -276,4 +303,81 @@ export const send = (send) => (dispatch) => {
                 }
             });
     }
+};
+
+export const updateProfile = (updateProfile) => (dispatch) => {
+    const token = localStorage.getItem("token");
+
+    if (token) {
+        fetch("http://localhost:5000/updateProfile", {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json",
+                Accept: "application/json",
+                token: token,
+            },
+            body: JSON.stringify(updateProfile),
+        })
+            .then((res) => res.json())
+            .then((res) =>
+                dispatch({
+                    type: UPDATE_PROFILE,
+                    payload: res,
+                })
+            );
+    }
+};
+
+export const changePassword = (changePassword) => (dispatch) => {
+    const token = localStorage.getItem("token");
+
+    if (token) {
+        fetch("http://localhost:5000/changePassword", {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json",
+                Accept: "application/json",
+                token: token,
+            },
+            body: JSON.stringify(changePassword),
+        })
+            .then((res) => res.json())
+            .then((res) =>
+                dispatch({
+                    type: CHANGE_PASSWORD,
+                    payload: res,
+                })
+            );
+    }
+};
+
+export const getHistory = () => (dispatch) => {
+    const token = localStorage.getItem("token");
+
+    if (token) {
+        fetch("http://localhost:5000/getHistory", {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+                Accept: "application/json",
+                token: token,
+            },
+        })
+            .then((res) => res.json())
+            .then((res) =>
+                dispatch({
+                    type: GET_HISTORY,
+                    payload: res,
+                })
+            );
+    }
+};
+
+export const logout = (history) => (dispatch) => {
+    dispatch({
+        type: LOGOUT,
+    });
+    localStorage.removeItem("token");
+    history.push("/");
+    window.location.reload();
 };

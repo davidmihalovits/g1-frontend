@@ -1,9 +1,13 @@
 import React from "react";
 import "./Settings.sass";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import selectRight from "../../assets/selectRight.svg";
+import { logout } from "../../redux/actions/actions";
+import { connect } from "react-redux";
 
-const Settings = () => {
+const Settings = (props) => {
+    const history = useHistory();
+
     return (
         <div className="settings-container">
             <Link to="/settings/profile" className="settings-button">
@@ -14,48 +18,22 @@ const Settings = () => {
                     className="settings-button-icon"
                 />
             </Link>
-            <div className="settings-button">
-                <p className="settings-button-text">Preferences</p>
+            <Link to="/settings/history" className="settings-button">
+                <p className="settings-button-text">History</p>
                 <img
                     src={selectRight}
                     alt="select"
                     className="settings-button-icon"
                 />
-            </div>
-            <div className="settings-button">
-                <p className="settings-button-text">Security</p>
-                <img
-                    src={selectRight}
-                    alt="select"
-                    className="settings-button-icon"
-                />
-            </div>
-            <div className="settings-button">
-                <p className="settings-button-text">Privacy Rights</p>
-                <img
-                    src={selectRight}
-                    alt="select"
-                    className="settings-button-icon"
-                />
-            </div>
-            <div className="settings-button">
-                <p className="settings-button-text">Linked Accounts</p>
-                <img
-                    src={selectRight}
-                    alt="select"
-                    className="settings-button-icon"
-                />
-            </div>
-            <div className="settings-button">
-                <p className="settings-button-text">Limits</p>
-                <img
-                    src={selectRight}
-                    alt="select"
-                    className="settings-button-icon"
-                />
-            </div>
+            </Link>
+            <button
+                className="settings-logout"
+                onClick={() => props.logout(history)}
+            >
+                LOGOUT
+            </button>
         </div>
     );
 };
 
-export default Settings;
+export default connect(null, { logout })(Settings);
