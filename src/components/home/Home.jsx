@@ -16,11 +16,28 @@ const Home = () => {
 
     return (
         <div className="home-container">
-            <h1 className="home-title">
-                This will be the home page. Nothing to see here yet.
-            </h1>
+            <h1 className="home-title">This is an ongoing project.</h1>
             <p className="home-paragraph">
-                Get started by signing up or logging in.
+                Frontend code:{" "}
+                <a
+                    href="https://github.com/davidmihalovits/g1-frontend"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="home-link"
+                >
+                    https://github.com/davidmihalovits/g1-frontend
+                </a>
+            </p>
+            <p className="home-paragraph">
+                Backend code:{" "}
+                <a
+                    href="https://github.com/davidmihalovits/g1-backend"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="home-link"
+                >
+                    https://github.com/davidmihalovits/g1-backend
+                </a>
             </p>
         </div>
     );

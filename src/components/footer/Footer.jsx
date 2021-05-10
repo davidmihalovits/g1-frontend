@@ -48,7 +48,7 @@ const Footer = () => {
                     alt="instagram"
                 />
             </div>
-            <p className="copyright">&copy; 2018 GOLDCOIN</p>
+            <p className="copyright">&copy; 2021 GOLDCOIN</p>
         </div>
     );
 };

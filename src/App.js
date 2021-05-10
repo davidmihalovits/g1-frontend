@@ -23,8 +23,6 @@ import Accounts from "./components/accounts/Accounts";
 import History from "./components/history/History";
 
 const App = (props) => {
-    const reducer = useSelector((state) => state.reducers);
-
     useEffect(() => {
         props.getProfile();
         // eslint-disable-next-line

@@ -32,7 +32,7 @@ export const getProfile = () => (dispatch) => {
     }
 
     if (token) {
-        fetch("http://localhost:5000/profile", {
+        fetch("https://goldcoin-server.herokuapp.com/profile", {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
@@ -55,7 +55,7 @@ export const login = (login) => (dispatch) => {
         type: LOGIN_REQUEST,
     });
 
-    fetch("http://localhost:5000/login", {
+    fetch("https://goldcoin-server.herokuapp.com/login", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -86,7 +86,7 @@ export const signup = (signup) => (dispatch) => {
         type: SIGNUP_REQUEST,
     });
 
-    fetch("http://localhost:5000/signup", {
+    fetch("https://goldcoin-server.herokuapp.com/signup", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -138,7 +138,7 @@ export const verify = (verify) => (dispatch) => {
     const token = localStorage.getItem("token");
 
     if (token) {
-        fetch("http://localhost:5000/verify", {
+        fetch("https://goldcoin-server.herokuapp.com/verify", {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
@@ -161,7 +161,7 @@ export const getAccounts = () => (dispatch) => {
     const token = localStorage.getItem("token");
 
     if (token) {
-        fetch("http://localhost:5000/getAccounts", {
+        fetch("https://goldcoin-server.herokuapp.com/getAccounts", {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
@@ -183,7 +183,7 @@ export const addAccount = (account) => (dispatch) => {
     const token = localStorage.getItem("token");
 
     if (token) {
-        fetch("http://localhost:5000/addAccount", {
+        fetch("https://goldcoin-server.herokuapp.com/addAccount", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -206,7 +206,7 @@ export const deposit = (deposit) => (dispatch) => {
     const token = localStorage.getItem("token");
 
     if (token) {
-        fetch("http://localhost:5000/deposit", {
+        fetch("https://goldcoin-server.herokuapp.com/deposit", {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
@@ -229,7 +229,7 @@ export const buy = (buy) => (dispatch) => {
     const token = localStorage.getItem("token");
 
     if (token) {
-        fetch("http://localhost:5000/buy", {
+        fetch("https://goldcoin-server.herokuapp.com/buy", {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
@@ -252,7 +252,7 @@ export const sell = (sell) => (dispatch) => {
     const token = localStorage.getItem("token");
 
     if (token) {
-        fetch("http://localhost:5000/sell", {
+        fetch("https://goldcoin-server.herokuapp.com/sell", {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
@@ -279,7 +279,7 @@ export const send = (send) => (dispatch) => {
     });
 
     if (token) {
-        fetch("http://localhost:5000/send", {
+        fetch("https://goldcoin-server.herokuapp.com/send", {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
@@ -309,7 +309,7 @@ export const updateProfile = (updateProfile) => (dispatch) => {
     const token = localStorage.getItem("token");
 
     if (token) {
-        fetch("http://localhost:5000/updateProfile", {
+        fetch("https://goldcoin-server.herokuapp.com/updateProfile", {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
@@ -332,7 +332,7 @@ export const changePassword = (changePassword) => (dispatch) => {
     const token = localStorage.getItem("token");
 
     if (token) {
-        fetch("http://localhost:5000/changePassword", {
+        fetch("https://goldcoin-server.herokuapp.com/changePassword", {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
@@ -355,7 +355,7 @@ export const getHistory = () => (dispatch) => {
     const token = localStorage.getItem("token");
 
     if (token) {
-        fetch("http://localhost:5000/getHistory", {
+        fetch("https://goldcoin-server.herokuapp.com/getHistory", {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",

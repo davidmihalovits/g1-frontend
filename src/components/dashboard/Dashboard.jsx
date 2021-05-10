@@ -85,159 +85,168 @@ const Dashboard = (props) => {
 
     return (
         <div className="dashboard-container">
-            <h2 className="dashboard-title">MY PORTFOLIO</h2>
-            <div className="balance-box">
-                <div className="balance-coin-div">
-                    <p className="my-balance">{reducer.user.balance}</p>
-                    <img src={coin} className="balance-coin" alt="coin" />
-                </div>
-                <p className="total-balance">TOTAL BALANCE</p>
-                <hr className="balance-box-line" />
-                {reducer.accounts.length > 0 && (
-                    <div className="buy-send-gold-container">
-                        <Link to="/buy-sell" className="buy-send-gold-link">
-                            <button className="buy-send-gold-button">
-                                BUY G1
-                            </button>
-                        </Link>
-                        <Link to="/send" className="buy-send-gold-link">
-                            <button className="buy-send-gold-button">
-                                SEND G1
-                            </button>
-                        </Link>
+            <div className="dashboard-left">
+                <h2 className="dashboard-title">MY PORTFOLIO</h2>
+                <div className="balance-box">
+                    <div className="balance-coin-div">
+                        <p className="my-balance">{reducer.user.balance}</p>
+                        <img src={coin} className="balance-coin" alt="coin" />
                     </div>
-                )}
-                {reducer.accounts.length !== 0 &&
-                    reducer.accounts.map((acc) => {
-                        return (
-                            <div key={acc.id} className="accounts-container">
-                                <img
-                                    src={gold_standard}
-                                    className="accounts-gold-icon"
-                                    alt="gold icon"
-                                />
-                                <div className="accounts-currency-created">
-                                    <div className="accounts-currency">
-                                        {acc.currency}
+                    <p className="total-balance">TOTAL BALANCE</p>
+                    <hr className="balance-box-line" />
+                    {reducer.accounts.length > 0 && (
+                        <div className="buy-send-gold-container">
+                            <Link to="/buy-sell" className="buy-send-gold-link">
+                                <button className="buy-send-gold-button">
+                                    BUY G1
+                                </button>
+                            </Link>
+                            <Link to="/send" className="buy-send-gold-link">
+                                <button className="buy-send-gold-button">
+                                    SEND G1
+                                </button>
+                            </Link>
+                        </div>
+                    )}
+                    {reducer.accounts.length !== 0 &&
+                        reducer.accounts.map((acc) => {
+                            return (
+                                <div
+                                    key={acc.id}
+                                    className="accounts-container"
+                                >
+                                    <img
+                                        src={gold_standard}
+                                        className="accounts-gold-icon"
+                                        alt="gold icon"
+                                    />
+                                    <div className="accounts-currency-created">
+                                        <div className="accounts-currency">
+                                            {acc.currency}
+                                        </div>
+                                        <div className="accounts-created">
+                                            {dayjs(acc.createdAt).format(
+                                                "DD.MM.YYYY"
+                                            )}
+                                        </div>
                                     </div>
-                                    <div className="accounts-created">
-                                        {dayjs(acc.createdAt).format(
-                                            "DD.MM.YYYY"
-                                        )}
+                                    <div className="accounts-balance">
+                                        {acc.balance}
                                     </div>
+                                    <img
+                                        src={more}
+                                        className="accounts-more"
+                                        alt="more"
+                                    />
                                 </div>
-                                <div className="accounts-balance">
-                                    {acc.balance}
-                                </div>
-                                <img
-                                    src={more}
-                                    className="accounts-more"
-                                    alt="more"
-                                />
-                            </div>
-                        );
-                    })}
-                <button
-                    className="add-new-account-button"
-                    onClick={() => setNewAccountModal(true)}
-                >
-                    <img src={plus} className="plus-icon" alt="plus" />
-                    <span className="add-new-account">Add a new account</span>
-                </button>
+                            );
+                        })}
+                    <button
+                        className="add-new-account-button"
+                        onClick={() => setNewAccountModal(true)}
+                    >
+                        <img src={plus} className="plus-icon" alt="plus" />
+                        <span className="add-new-account">
+                            Add a new account
+                        </span>
+                    </button>
+                </div>
             </div>
-            <h2 className="dashboard-title">PRICE CHART</h2>
-            <div className="chart-box">
-                <div className="chart-box-top">
-                    <p className="chart-box-price">
-                        <span className="currency">USD</span> <br />
-                        <span className="price">1754.88</span>
-                    </p>
-                    <div className="chart-box-filter">
-                        <span>USD</span>
-                        <img
-                            src={selectArrow}
-                            className="chart-box-filter-arrow"
-                            alt="select"
-                        />
-                    </div>
-                    <div className="chart-box-filter">
-                        <span>1D</span>
-                        <img
-                            src={selectArrow}
-                            className="chart-box-filter-arrow"
-                            alt="select"
-                        />
-                    </div>
-                </div>
-                <hr className="chart-box-line" />
-                <div className="chart-container">
-                    <ResponsiveContainer>
-                        <AreaChart
-                            data={data}
-                            margin={{
-                                top: 0,
-                                left: 0,
-                                right: 0,
-                                bottom: 0,
-                            }}
-                        >
-                            <defs>
-                                <linearGradient
-                                    id="colorUv"
-                                    x1="0"
-                                    y1="0"
-                                    x2="0"
-                                    y2="1"
-                                >
-                                    <stop
-                                        offset="0%"
-                                        stopColor="#FAB95B"
-                                        stopOpacity={0.5}
-                                    />
-                                    <stop
-                                        offset="100%"
-                                        stopColor="#FAB95B"
-                                        stopOpacity={0}
-                                    />
-                                </linearGradient>
-                                <linearGradient
-                                    id="colorPv"
-                                    x1="0"
-                                    y1="0"
-                                    x2="0"
-                                    y2="1"
-                                >
-                                    <stop
-                                        offset="0%"
-                                        stopColor="#FAB95B"
-                                        stopOpacity={0.5}
-                                    />
-                                    <stop
-                                        offset="100%"
-                                        stopColor="#FAB95B"
-                                        stopOpacity={0}
-                                    />
-                                </linearGradient>
-                            </defs>
-
-                            <XAxis dataKey="price" hide />
-
-                            <Tooltip
-                                content={<CustomTooltip data={data} />}
-                                cursor={false}
+            <div className="dashboard-right">
+                <h2 className="dashboard-title">PRICE CHART</h2>
+                <div className="chart-box">
+                    <div className="chart-box-top">
+                        <p className="chart-box-price">
+                            <span className="currency">USD</span> <br />
+                            <span className="price">1754.88</span>
+                        </p>
+                        <div className="chart-box-filter">
+                            <span>USD</span>
+                            <img
+                                src={selectArrow}
+                                className="chart-box-filter-arrow"
+                                alt="select"
                             />
-
-                            <Area
-                                activeDot={<ActiveDot />}
-                                strokeWidth={4}
-                                type="monotone"
-                                dataKey="p"
-                                stroke="#DC9A00"
-                                fillOpacity={1}
-                                fill="url(#colorPv)"
+                        </div>
+                        <div className="chart-box-filter">
+                            <span>1D</span>
+                            <img
+                                src={selectArrow}
+                                className="chart-box-filter-arrow"
+                                alt="select"
                             />
-                        </AreaChart>
-                    </ResponsiveContainer>
+                        </div>
+                    </div>
+                    <hr className="chart-box-line" />
+                    <div className="chart-container">
+                        <ResponsiveContainer>
+                            <AreaChart
+                                data={data}
+                                margin={{
+                                    top: 0,
+                                    left: 0,
+                                    right: 0,
+                                    bottom: 0,
+                                }}
+                            >
+                                <defs>
+                                    <linearGradient
+                                        id="colorUv"
+                                        x1="0"
+                                        y1="0"
+                                        x2="0"
+                                        y2="1"
+                                    >
+                                        <stop
+                                            offset="0%"
+                                            stopColor="#FAB95B"
+                                            stopOpacity={0.5}
+                                        />
+                                        <stop
+                                            offset="100%"
+                                            stopColor="#FAB95B"
+                                            stopOpacity={0}
+                                        />
+                                    </linearGradient>
+                                    <linearGradient
+                                        id="colorPv"
+                                        x1="0"
+                                        y1="0"
+                                        x2="0"
+                                        y2="1"
+                                    >
+                                        <stop
+                                            offset="0%"
+                                            stopColor="#FAB95B"
+                                            stopOpacity={0.5}
+                                        />
+                                        <stop
+                                            offset="100%"
+                                            stopColor="#FAB95B"
+                                            stopOpacity={0}
+                                        />
+                                    </linearGradient>
+                                </defs>
+
+                                <XAxis dataKey="price" hide />
+
+                                <Tooltip
+                                    content={<CustomTooltip data={data} />}
+                                    cursor={false}
+                                />
+
+                                <Area
+                                    activeDot={<ActiveDot />}
+                                    strokeWidth={4}
+                                    type="monotone"
+                                    dataKey="p"
+                                    stroke="#DC9A00"
+                                    fillOpacity={1}
+                                    fill="url(#colorPv)"
+                                />
+                            </AreaChart>
+                        </ResponsiveContainer>
+                    </div>
                 </div>
             </div>
         </div>

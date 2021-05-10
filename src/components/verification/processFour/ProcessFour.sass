@@ -51,10 +51,12 @@
             margin-top: 15px
             width: 140px
             height: 140px
+            cursor: pointer
 
             .process-four-type-image
                 width: 100px
                 height: 100px
+
             .process-four-type-p
                 color: $standard-grey
 
@@ -81,6 +83,7 @@
                 height: 150px
                 width: 150px
                 object-fit: cover
+                cursor: pointer
 
         .process-four-button
             width: 100%
@@ -97,3 +100,8 @@
 
             &:disabled
                 background: $light-yellow-gradient
+
+@media only screen and (min-width: 1200px)
+    .process-four-container
+        margin: 90px auto 30px auto
+        width: 500px
